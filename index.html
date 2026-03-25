@@ -1,1895 +1,1654 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Product Designer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    overflow-x: hidden;
-    background-color: rgba(7, 46, 51, 0.95);
-}
-
-header {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("images/background.jpeg");
-    background-size: cover;
-    background-position: center;
-}
-
-header > nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 20px 50px;
-}
-
-.logo {
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #63c1bb;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    font-family: 'Syne', sans-serif;
-}
-
-nav ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 10px 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-}
-
-nav ul li a::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    background: #3a9295;
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    transition: 0.5s;
-}
-
-nav ul li a:hover::after { width: 100%; }
-
-.aside {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 250px;
-    padding: 50px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.social-icons { display: flex; flex-direction: column; gap: 20px; width: 100%; }
-
-.social-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: white;
-}
-
-.social-item:hover { background: rgba(255,255,255,0.1); transform: translateX(-10px); }
-.social-item i { font-size: 1.8rem; width: 40px; text-align: center; }
-.social-item span { margin-left: 15px; font-size: 1.1rem; }
-
-.hero {
-    display: flex;
-    align-items: center;
-    min-height: 60vh;
-    padding: 0 5%;
-    margin-top: 80px;
-}
-
-.hero-content { flex: 1; max-width: 600px; }
-
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
-    font-family: 'Syne', sans-serif;
-}
-
-.hero p { font-size: 1.2rem; color: white; font-weight: 300; }
-
-.btn {
-    display: inline-block;
-    background-color: #63c1bb;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
-
-.about {
-    padding: 80px 5%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #000000;
-}
-
-.about img { width: 70%; height: 70%; }
-.about-content { flex: 1; }
-.about-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: white; font-family: 'Syne', sans-serif; }
-.about-content p { margin-bottom: 20px; color: white; font-weight: 300; }
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-    position: relative;
-    color: white;
-    font-family: 'Syne', sans-serif;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: #63c1bb;
-}
-
-.expertise { padding: 80px 5%; background-color: #000000; }
-
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.expertise-item {
-    background-color: #072e33;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    color: white;
-}
-
-.expertise-item:hover { transform: translateY(-10px); }
-.expertise-item i { font-size: 2.5rem; color: #63c1bb; margin-bottom: 20px; }
-.expertise-item h3 { font-size: 1.3rem; margin-bottom: 15px; font-family: 'Syne', sans-serif; }
-
-/* =============================================
-   ENHANCED PORTFOLIO SECTION
-   ============================================= */
-
-.portfolio {
-    padding: 100px 5%;
-    background-color: #000000;
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(99,193,187,0.05) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.portfolio-header {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.portfolio-header .section-title { margin-bottom: 20px; }
-
-.portfolio-header p {
-    color: rgba(255,255,255,0.5);
-    font-size: 1.1rem;
-    font-weight: 300;
-    max-width: 600px;
-    margin: 30px auto 0;
-}
-
-/* ---- FEATURED PROJECT (SafeLanka) ---- */
-
-.featured-project {
-    position: relative;
-    background: linear-gradient(135deg, #051e22 0%, #0a3038 50%, #0d3d47 100%);
-    border: 1px solid rgba(99,193,187,0.2);
-    border-radius: 24px;
-    overflow: hidden;
-    margin-bottom: 40px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.featured-project:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(99,193,187,0.08);
-}
-
-.featured-badge {
-    position: absolute;
-    top: 28px;
-    left: 28px;
-    background: linear-gradient(135deg, #63c1bb, #3a9295);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 50px;
-    z-index: 10;
-    font-family: 'Syne', sans-serif;
-}
-
-.featured-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 520px;
-}
-
-/* Left: visual panel */
-.featured-visual {
-    position: relative;
-    background: linear-gradient(160deg, #0e4550 0%, #072e33 60%, #030f11 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 40px;
-    overflow: hidden;
-}
-
-.featured-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 30% 40%, rgba(99,193,187,0.12) 0%, transparent 55%),
-        radial-gradient(circle at 80% 80%, rgba(58,146,149,0.08) 0%, transparent 50%);
-}
-
-/* Decorative grid lines */
-.featured-visual::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(99,193,187,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99,193,187,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-}
-
-.phone-mockup-group {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    gap: -20px;
-}
-
-.phone-mockup {
-    width: 140px;
-    height: 280px;
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-    border-radius: 28px;
-    border: 2px solid rgba(99,193,187,0.3);
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.phone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 6px;
-    background: rgba(99,193,187,0.4);
-    border-radius: 3px;
-}
-
-.phone-mockup.primary {
-    width: 160px;
-    height: 320px;
-    z-index: 3;
-    border-color: rgba(99,193,187,0.6);
-    box-shadow: 0 25px 80px rgba(0,0,0,0.7), 0 0 30px rgba(99,193,187,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-.phone-mockup.secondary {
-    margin-left: -30px;
-    margin-bottom: 20px;
-    opacity: 0.75;
-    z-index: 2;
-}
-
-.phone-screen {
-    position: absolute;
-    inset: 20px 8px 8px;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #0d1117;
-    display: flex;
-    flex-direction: column;
-}
-
-.phone-header-bar {
-    background: linear-gradient(135deg, #1e3a5f, #0d2137);
-    padding: 10px 12px 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.phone-header-bar .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(99,193,187,0.6);
-}
-
-.phone-header-bar span {
-    font-size: 0.55rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-}
-
-.phone-content {
-    flex: 1;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.phone-sos-btn {
-    background: linear-gradient(135deg, #c0392b, #e74c3c);
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    margin: 6px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(231,76,60,0.5);
-    animation: pulse-sos 2s ease-in-out infinite;
-}
-
-.phone-sos-btn i { color: white; font-size: 0.9rem; }
-
-@keyframes pulse-sos {
-    0%, 100% { box-shadow: 0 0 15px rgba(231,76,60,0.5); }
-    50% { box-shadow: 0 0 30px rgba(231,76,60,0.8), 0 0 50px rgba(231,76,60,0.3); }
-}
-
-.phone-menu-item {
-    background: rgba(99,193,187,0.08);
-    border: 1px solid rgba(99,193,187,0.12);
-    border-radius: 8px;
-    padding: 6px 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.phone-menu-item i { color: #63c1bb; font-size: 0.65rem; width: 14px; }
-
-.phone-menu-item span {
-    font-size: 0.5rem;
-    color: rgba(255,255,255,0.7);
-    font-weight: 500;
-}
-
-.phone-stat-row {
-    display: flex;
-    gap: 4px;
-    margin-top: 2px;
-}
-
-.phone-stat {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border-radius: 6px;
-    padding: 6px;
-    text-align: center;
-}
-
-.phone-stat .num {
-    font-size: 0.65rem;
-    color: #63c1bb;
-    font-weight: 700;
-    font-family: 'Syne', sans-serif;
-}
-
-.phone-stat .lbl {
-    font-size: 0.38rem;
-    color: rgba(255,255,255,0.4);
-    display: block;
-}
-
-/* Floating badges on the visual */
-.feature-float {
-    position: absolute;
-    z-index: 4;
-    background: rgba(7,46,51,0.9);
-    border: 1px solid rgba(99,193,187,0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 10px 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    animation: float-badge 3s ease-in-out infinite;
-}
-
-.feature-float i { color: #63c1bb; font-size: 0.9rem; }
-.feature-float span { font-size: 0.72rem; color: white; white-space: nowrap; font-weight: 500; }
-.feature-float.f1 { top: 80px; right: 20px; animation-delay: 0s; }
-.feature-float.f2 { bottom: 100px; right: 10px; animation-delay: 1s; }
-.feature-float.f3 { bottom: 40px; left: 20px; animation-delay: 2s; }
-
-@keyframes float-badge {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-}
-
-/* Right: content panel */
-.featured-content {
-    padding: 60px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.project-type-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #63c1bb;
-    margin-bottom: 20px;
-    font-family: 'Syne', sans-serif;
-}
-
-.project-type-tag::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: #63c1bb;
-}
-
-.featured-content h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1.15;
-    margin-bottom: 18px;
-    letter-spacing: -0.5px;
-}
-
-.featured-content h3 span { color: #63c1bb; }
-
-.featured-description {
-    color: rgba(255,255,255,0.6);
-    font-size: 1rem;
-    line-height: 1.75;
-    font-weight: 300;
-    margin-bottom: 30px;
-    max-width: 420px;
-}
-
-.live-site-strip {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(99,193,187,0.07);
-    border: 1px solid rgba(99,193,187,0.25);
-    border-radius: 50px;
-    padding: 9px 18px;
-    text-decoration: none;
-    margin-bottom: 28px;
-    transition: all 0.3s ease;
-}
-
-.live-site-strip:hover {
-    background: rgba(99,193,187,0.14);
-    border-color: rgba(99,193,187,0.5);
-    transform: translateY(-1px);
-}
-
-.live-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2ecc71;
-    box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
-    animation: pulse-live 2s ease-in-out infinite;
-    flex-shrink: 0;
-}
-
-@keyframes pulse-live {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(46,204,113,0.2); }
-    50% { box-shadow: 0 0 0 6px rgba(46,204,113,0.1); }
-}
-
-.live-label {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.45);
-    font-weight: 400;
-}
-
-.live-url {
-    font-size: 0.85rem;
-    color: #63c1bb;
-    font-weight: 700;
-    font-family: 'Syne', sans-serif;
-    letter-spacing: 0.3px;
-}
-
-.live-site-strip i {
-    font-size: 0.7rem;
-    color: rgba(99,193,187,0.6);
-    margin-left: 2px;
-}
-
-/* Impact metrics */
-.impact-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 14px;
-    border: 1px solid rgba(99,193,187,0.1);
-}
-
-.metric {
-    text-align: center;
-}
-
-.metric-value {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #63c1bb;
-    display: block;
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.metric-label {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-}
-
-/* Feature highlights */
-.feature-list {
-    list-style: none;
-    margin-bottom: 36px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    max-height: 200px;
-}
-
-.feature-list li {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.7);
-    font-weight: 400;
-}
-
-.feature-list li::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #63c1bb;
-    flex-shrink: 0;
-}
-
-/* Tech stack pills */
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 36px;
-}
-
-.tech-pill {
-    padding: 5px 14px;
-    border-radius: 50px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border: 1px solid rgba(99,193,187,0.3);
-    color: rgba(255,255,255,0.75);
-    background: rgba(99,193,187,0.06);
-    font-family: 'DM Sans', sans-serif;
-    transition: all 0.2s;
-}
-
-.tech-pill:hover {
-    background: rgba(99,193,187,0.15);
-    border-color: rgba(99,193,187,0.6);
-    color: #fff;
-}
-
-.tech-pill.highlight {
-    background: rgba(99,193,187,0.15);
-    border-color: rgba(99,193,187,0.5);
-    color: #63c1bb;
-}
-
-.project-actions { display: flex; gap: 12px; align-items: center; }
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #63c1bb, #3a9295);
-    color: white;
-    padding: 13px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 24px rgba(99,193,187,0.25);
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(99,193,187,0.4);
-}
-
-.btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: rgba(255,255,255,0.7);
-    padding: 13px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.15);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-outline:hover {
-    border-color: rgba(99,193,187,0.5);
-    color: #63c1bb;
-    background: rgba(99,193,187,0.05);
-}
-
-/* ---- SECONDARY PROJECT GRID ---- */
-
-.secondary-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.project-card {
-    background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
-    border: 1px solid rgba(99,193,187,0.12);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    position: relative;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(99,193,187,0.35);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(99,193,187,0.07);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #63c1bb, transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.project-card:hover::before { opacity: 1; }
-
-/* Visual header for Opulenza */
-.card-visual {
-    height: 180px;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1a0533, #2d1b69, #1a3a5c);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-visual.opulenza-visual {
-    background: linear-gradient(135deg, #1a0a0a, #2d1515, #1a1a2e);
-}
-
-.card-visual.greenlife-visual {
-    background: linear-gradient(135deg, #0a1a0a, #0d2b1a, #0a2010);
-}
-
-.card-visual.ocean-visual {
-    background: linear-gradient(135deg, #0a1020, #0d1e3a, #082030);
-}
-
-/* Opulenza luxury mockup */
-.luxury-mockup {
-    position: relative;
-    width: 200px;
-    height: 130px;
-    background: rgba(20,15,10,0.9);
-    border-radius: 10px;
-    border: 1px solid rgba(212,175,55,0.3);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    overflow: hidden;
-}
-
-.luxury-header {
-    background: linear-gradient(90deg, #1a0f0a, #2d1a0a);
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-
-.luxury-logo {
-    font-size: 0.6rem;
-    font-weight: 800;
-    color: #d4af37;
-    letter-spacing: 3px;
-    font-family: 'Syne', sans-serif;
-}
-
-.luxury-nav-dots { display: flex; gap: 4px; }
-.luxury-nav-dots span { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,175,55,0.4); }
-
-.luxury-hero-img {
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(180,120,40,0.12));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.luxury-hero-img::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 6px,
-        rgba(212,175,55,0.03) 6px,
-        rgba(212,175,55,0.03) 12px
-    );
-}
-
-.luxury-price-tag {
-    position: absolute;
-    right: 8px;
-    bottom: 4px;
-    background: rgba(212,175,55,0.9);
-    color: #1a0a0a;
-    font-size: 0.45rem;
-    font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Syne', sans-serif;
-}
-
-.luxury-icon-big { color: rgba(212,175,55,0.5); font-size: 1.5rem; }
-
-.luxury-footer {
-    padding: 6px 10px;
-    display: flex;
-    gap: 6px;
-}
-
-.luxury-pill {
-    background: rgba(212,175,55,0.1);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 3px;
-    padding: 2px 6px;
-    font-size: 0.4rem;
-    color: rgba(212,175,55,0.7);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* GreenLife & Ocean simple visual */
-.simple-visual-icon {
-    font-size: 3rem;
-    opacity: 0.4;
-}
-
-.simple-visual-icon.green { color: #2ecc71; }
-.simple-visual-icon.ocean { color: #3498db; }
-
-.visual-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(7,46,51,0.6), transparent);
-}
-
-.card-body { padding: 28px; }
-
-.card-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 14px;
-}
-
-.card-tag {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #63c1bb;
-    font-family: 'Syne', sans-serif;
-}
-
-.card-date {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.35);
-    font-weight: 300;
-}
-
-.card-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 12px;
-    letter-spacing: -0.2px;
-}
-
-.card-desc {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-.card-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 22px;
-}
-
-.card-tech-pill {
-    padding: 4px 11px;
-    border-radius: 50px;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    border: 1px solid rgba(99,193,187,0.2);
-    color: rgba(255,255,255,0.55);
-    background: rgba(99,193,187,0.05);
-}
-
-.card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-.card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #63c1bb;
-    text-decoration: none;
-    transition: gap 0.2s;
-}
-
-.card-link:hover { gap: 12px; }
-.card-link i { font-size: 0.75rem; }
-
-.card-icon-link {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(99,193,187,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: all 0.2s;
-    font-size: 0.85rem;
-}
-
-.card-icon-link:hover {
-    border-color: rgba(99,193,187,0.5);
-    color: #63c1bb;
-    background: rgba(99,193,187,0.08);
-}
-
-/* ---- SafeLanka team strip ---- */
-.team-strip {
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(99,193,187,0.12);
-}
-
-.team-strip-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 14px;
-    font-family: 'Syne', sans-serif;
-}
-
-.team-avatars {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.team-member {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(99,193,187,0.1);
-    border-radius: 50px;
-    padding: 5px 12px 5px 5px;
-    transition: all 0.2s;
-}
-
-.team-member:hover {
-    background: rgba(99,193,187,0.08);
-    border-color: rgba(99,193,187,0.3);
-}
-
-.team-avatar-img {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid rgba(99,193,187,0.3);
-}
-
-.team-avatar-placeholder {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #63c1bb, #3a9295);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.55rem;
-    font-weight: 800;
-    color: white;
-    font-family: 'Syne', sans-serif;
-    flex-shrink: 0;
-}
-
-.team-info { display: flex; flex-direction: column; }
-
-.team-name {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.2;
-}
-
-.team-role {
-    font-size: 0.58rem;
-    color: rgba(99,193,187,0.7);
-    font-weight: 400;
-}
-
-/* SafeLanka modules grid */
-.modules-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 28px;
-}
-
-.module-chip{
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    margin-top: 10px;
-}
-
-.minor-projects-label span {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    font-family: 'Syne', sans-serif;
-    white-space: nowrap;
-}
-
-.minor-projects-label::before,
-.minor-projects-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.07);
-}
-
-/* =============================================
-   CONTACT + FOOTER
-   ============================================= */
-
-.field-error {
-    display: none;
-    color: #e74c3c;
-    font-size: 0.78rem;
-    margin-top: 5px;
-    font-weight: 500;
-}
-
-.input-error {
-    border-color: #e74c3c !important;
-    background-color: rgba(231,76,60,0.05) !important;
-}
-
-/* Toast */
-.toast {
-    position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: #072e33;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    border: 1px solid rgba(99,193,187,0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s ease;
-    z-index: 9999;
-    white-space: nowrap;
-    max-width: 90vw;
-    text-align: center;
-}
-
-.toast.toast-show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-
-.toast.toast-success { border-color: rgba(46,204,113,0.5); }
-.toast.toast-error   { border-color: rgba(231,76,60,0.5); }
-
-#submitBtn { min-width: 160px; }
-
-.contact { padding: 80px 5%; background-color: #000000; }
-
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: #072e33;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.form-group { margin-bottom: 20px; color: white; }
-.form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
-
-.form-control {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #E0E0E0;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus { outline: none; border-color: #63c1bb; }
-textarea.form-control { resize: vertical; min-height: 120px; }
-
-.checkbox-group { display: flex; align-items: center; margin-bottom: 20px; color: white; }
-.checkbox-group input { margin-right: 10px; }
-
-footer { background-color: #072e33; color: #ecf0f1; padding: 60px 0 20px; }
-
-.footer-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-
-.footer-content { display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px; }
-
-.footer-section { flex: 1 1 250px; min-width: 250px; }
-
-.footer-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-    color: #fff;
-    font-family: 'Syne', sans-serif;
-}
-
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 2px;
-    background-color: #63c1bb;
-}
-
-.footer-section ul { list-style: none; padding: 0; margin: 0; }
-.footer-section ul li { margin-bottom: 12px; }
-
-.footer-section ul li a {
-    color: #bdc3c7;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.footer-section ul li a:hover { color: #63c1bb; transform: translateX(5px); }
-
-.contact-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
-
-.contact-item i {
-    margin-right: 15px;
-    color: #63c1bb;
-    font-size: 18px;
-    width: 20px;
-    text-align: center;
-    margin-top: 3px;
-}
-
-.contact-item span { color: #bdc3c7; }
-.contact-item span a { color: #63c1bb; text-decoration: none; transition: color 0.3s; }
-.contact-item span a:hover { color: #fff; text-decoration: underline; }
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-bottom p { margin: 0; color: #bdc3c7; }
-
-.footer-bottom-links { display: flex; gap: 20px; }
-.footer-bottom-links a { color: #bdc3c7; text-decoration: none; transition: color 0.3s; }
-.footer-bottom-links a:hover { color: #63c1bb; }
-
-.social-links { display: flex; gap: 15px; }
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: #ecf0f1;
-    transition: all 0.3s;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.social-links a:hover { color: #63c1bb; transform: translateY(-3px); }
-
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #63c1bb;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 24px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.back-to-top:hover { transform: translateY(-3px); }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.hero-content { animation: fadeIn 1.5s ease-in-out; }
-
-input[type="text"] { background-color: rgba(255,255,255,0.1); color: white; }
-nav > ul { list-style: none; padding: 0; }
-nav > ul > li:first-child { margin-left: 0; }
-nav > ul > li:not(:last-child) { margin-right: 30px; }
-.form-control:valid { border-color: #63c1bb; }
-.hero-content .btn { background-color: #3a9295; font-size: 1.2rem; }
-
-/* Responsive */
-@media (max-width: 900px) {
-    .featured-inner { grid-template-columns: 1fr; }
-    .featured-visual { min-height: 280px; }
-    .featured-content { padding: 40px 30px; }
-    .featured-content h3 { font-size: 2rem; }
-    .impact-metrics { grid-template-columns: repeat(3, 1fr); }
-    .feature-list { grid-template-columns: 1fr; }
-    .feature-float.f1, .feature-float.f3 { display: none; }
-}
-
-@media (max-width: 768px) {
-    header > nav { padding: 15px 20px; flex-direction: column; }
-    .logo { margin-bottom: 15px; font-size: 20px; }
-    nav ul { display: flex; flex-wrap: wrap; justify-content: center; }
-    nav ul li { margin: 5px 10px; }
-    nav ul li a { font-size: 16px; }
-    .aside { position: static; transform: none; right: auto; top: auto; margin: 30px 0; width: 100%; padding: 20px; flex-direction: row; justify-content: center; }
-    .hero { flex-direction: column; text-align: center; margin-top: 40px; }
-    .hero h1 { font-size: 2.5rem; }
-    .about { flex-direction: column; padding: 60px 5%; }
-    .about img { width: 100%; margin-bottom: 30px; margin-top: 300px; }
-    .portfolio { padding: 60px 5%; }
-    .secondary-projects { grid-template-columns: 1fr; }
-    .impact-metrics { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .featured-content { padding: 30px 20px; }
-    .featured-content h3 { font-size: 1.8rem; }
-    .project-actions { flex-direction: column; align-items: flex-start; }
-    .footer-content { flex-direction: column; gap: 30px; }
-    .footer-section { min-width: 100%; }
-    .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
-    .back-to-top { width: 40px; height: 40px; font-size: 18px; bottom: 20px; right: 20px; }
-    .feature-float { display: none; }
-}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steffani Silva | Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    :root {
+      --bg: #000000;
+      --bg-soft: #072e33;
+      --card: #0a2428;
+      --accent: #63c1bb;
+      --accent-dark: #3a9295;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.72);
+      --muted-2: rgba(255,255,255,0.48);
+      --border: rgba(99,193,187,0.18);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.76)),
+        url("images/background.jpeg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 48px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-size: 18px;
+      position: relative;
+      font-weight: 500;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 3px;
+      background: var(--accent-dark);
+      transition: 0.35s ease;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px 5% 70px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 4.2rem;
+      line-height: 1.06;
+      margin-bottom: 24px;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: white;
+      max-width: 650px;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--accent-dark);
+      color: white;
+      padding: 16px 30px;
+      border-radius: 999px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(58,146,149,0.35);
+    }
+
+    .hero-socials {
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-right: 10px;
+    }
+
+    .hero-social-link {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: white;
+      padding: 12px 8px;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .hero-social-link:hover {
+      transform: translateX(-10px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-social-link i {
+      width: 34px;
+      text-align: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .hero-social-link span {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      color: white;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -14px;
+      border-radius: 999px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 60px;
+      color: var(--muted-2);
+      font-size: 1rem;
+    }
+
+    .about,
+    .expertise,
+    .portfolio,
+    .experience,
+    .testimonials,
+    .contact {
+      padding: 90px 5%;
+      background: #000;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-image img {
+      border-radius: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .about-content {
+      flex: 1.2;
+    }
+
+    .about-content h2 {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .about-content h2::after {
+      left: 0;
+      transform: none;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .expertise-grid,
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .expertise-item,
+    .testimonial-card,
+    .timeline-card,
+    .contact-info {
+      background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.3s ease;
+    }
+
+    .expertise-item:hover,
+    .testimonial-card:hover,
+    .timeline-card:hover,
+    .contact-info:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99,193,187,0.45);
+    }
+
+    .expertise-item i {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .expertise-item h3,
+    .timeline-card h3 {
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .expertise-item p,
+    .timeline-card p,
+    .testimonial-card p,
+    .contact-info p {
+      color: var(--muted);
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .featured-project {
+      background: linear-gradient(135deg, #051e22 0%, #0a3038 50%, #0d3d47 100%);
+      border: 1px solid rgba(99,193,187,0.2);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 34px;
+    }
+
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+
+    .featured-visual {
+      position: relative;
+      background: linear-gradient(160deg, #0e4550 0%, #072e33 60%, #030f11 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      overflow: hidden;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 26px;
+      left: 26px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      z-index: 10;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .phone-mockup-group {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .phone-mockup {
+      width: 140px;
+      height: 280px;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 28px;
+      border: 2px solid rgba(99,193,187,0.3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .phone-mockup.primary {
+      width: 160px;
+      height: 320px;
+      z-index: 3;
+      border-color: rgba(99,193,187,0.6);
+    }
+
+    .phone-mockup.secondary {
+      margin-left: -28px;
+      margin-bottom: 22px;
+      opacity: 0.78;
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 20px 8px 8px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #0d1117;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-header-bar {
+      background: linear-gradient(135deg, #1e3a5f, #0d2137);
+      padding: 10px 12px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phone-header-bar .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(99,193,187,0.7);
+    }
+
+    .phone-header-bar span {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.72);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .phone-content {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .phone-sos-btn {
+      background: linear-gradient(135deg, #c0392b, #e74c3c);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      margin: 6px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(231,76,60,0.5);
+    }
+
+    .phone-menu-item {
+      background: rgba(99,193,187,0.08);
+      border: 1px solid rgba(99,193,187,0.12);
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phone-menu-item i {
+      color: var(--accent);
+      font-size: 0.65rem;
+      width: 14px;
+    }
+
+    .phone-menu-item span {
+      font-size: 0.5rem;
+      color: rgba(255,255,255,0.76);
+      font-weight: 500;
+    }
+
+    .phone-stat-row {
+      display: flex;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .phone-stat {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+    }
+
+    .phone-stat .num {
+      font-size: 0.65rem;
+      color: var(--accent);
+      font-weight: 800;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .phone-stat .lbl {
+      font-size: 0.38rem;
+      color: rgba(255,255,255,0.42);
+      display: block;
+    }
+
+    .featured-content {
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-type-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .project-type-tag::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .featured-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .featured-content h3 span {
+      color: var(--accent);
+    }
+
+    .featured-description {
+      color: rgba(255,255,255,0.66);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 460px;
+    }
+
+    .tech-stack,
+    .card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .tech-pill,
+    .card-tech-pill {
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border: 1px solid rgba(99,193,187,0.28);
+      color: rgba(255,255,255,0.78);
+      background: rgba(99,193,187,0.06);
+    }
+
+    .tech-pill.highlight {
+      background: rgba(99,193,187,0.15);
+      border-color: rgba(99,193,187,0.52);
+      color: var(--accent);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 50px;
+      padding: 13px 24px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.8);
+      background: transparent;
+    }
+
+    .btn-outline:hover,
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .secondary-projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
+      border: 1px solid rgba(99,193,187,0.12);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(99,193,187,0.35);
+    }
+
+    .card-visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-visual.tictactoe-visual {
+      background: linear-gradient(135deg, #1b1035, #241457, #1b335a);
+    }
+
+    .card-visual.portfolio-visual {
+      background: linear-gradient(135deg, #0b1b1e, #12383f, #0d2530);
+    }
+
+    .card-visual.traffic-visual {
+      background: linear-gradient(135deg, #081a12, #0f3226, #12384b);
+    }
+
+    .simple-visual-icon {
+      font-size: 3rem;
+      opacity: 0.42;
+      color: white;
+    }
+
+    .card-body {
+      padding: 26px;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .card-date {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      color: rgba(255,255,255,0.58);
+      margin-bottom: 20px;
+      font-size: 0.92rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .card-icon-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(99,193,187,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .timeline-wrapper {
+      max-width: 950px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline-wrapper::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(99,193,187,0), rgba(99,193,187,0.7), rgba(99,193,187,0));
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding: 18px 28px;
+      position: relative;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 28px;
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(99,193,187,0.12);
+    }
+
+    .timeline-item.left .timeline-dot {
+      right: -9px;
+    }
+
+    .timeline-item.right .timeline-dot {
+      left: -9px;
+    }
+
+    .timeline-year {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 50px;
+      background: rgba(99,193,187,0.12);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .timeline-card h4 {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .stars {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+      color: #f1c40f;
+    }
+
+    .testimonial-card p {
+      min-height: 110px;
+      margin-bottom: 22px;
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .author-info strong {
+      display: block;
+      color: white;
+    }
+
+    .author-info span {
+      color: var(--muted-2);
+      font-size: 0.85rem;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .single-contact {
+      justify-content: center;
+    }
+
+    .contact-info h3 {
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-list-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .contact-list-item i {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(99,193,187,0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-list-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .contact-list-item span,
+    .contact-list-item a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: var(--bg-soft);
+      color: #ecf0f1;
+      padding: 60px 0 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+      min-width: 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.45rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      color: white;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .footer-section p {
+      color: #c5d0d3;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section ul li a {
+      color: #bdc3c7;
+      transition: 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #ecf0f1;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+      border-color: rgba(99,193,187,0.4);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
+      margin-top: 3px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: #bdc3c7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-bottom p,
+    .footer-bottom a {
+      color: #bdc3c7;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      background: var(--accent-dark);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-socials {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .about {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .featured-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-wrapper::before {
+        left: 18px;
+        transform: none;
+      }
+
+      .timeline-item,
+      .timeline-item.left,
+      .timeline-item.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 50px;
+        padding-right: 0;
+      }
+
+      .timeline-item.left .timeline-dot,
+      .timeline-item.right .timeline-dot {
+        left: 9px;
+        right: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav ul {
+        gap: 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding: 30px 5% 50px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .footer-container {
+        padding: 0 20px;
+      }
+
+      .footer-content,
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .back-to-top {
+        width: 42px;
+        height: 42px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
+
+  <header>
     <nav>
-        <div class="logo">Steffani Silva</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <div class="logo">STEFFANI SILVA</div>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Digital Experiences Human-Centered Simple Engaging Effective</h1>
-            <p>Where clean code and thoughtful design unite to create simple, engaging, and effective experiences.</p>
-            <br>
-            <a href="images/Steff_cv.pdf" download="CV.pdf" class="btn">Download CV</a>
-        </div>
-        <aside class="aside">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/feed/" target="_blank" class="social-item">
-                    <i class="fab fa-linkedin"></i><span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/SteffaniSilva" target="_blank" class="social-item">
-                    <i class="fab fa-github"></i><span>GitHub</span>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-item">
-                    <i class="fab fa-twitter"></i><span>Twitter</span>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="social-item">
-                    <i class="fab fa-instagram"></i><span>Instagram</span>
-                </a>
-                <!-- ✅ FIXED: Plain mailto email link -->
-                <a href="mailto:silvasteffani2004@gmail.com" class="social-item">
-                    <i class="fas fa-envelope"></i><span>Email Me</span>
-                </a>
-            </div>
-        </aside>
-    </section>
-    </header>
+      <div class="hero-content">
+        <h1>
+          Digital Experiences<br>
+          Human-Centered<br>
+          Simple Engaging<br>
+          Effective
+        </h1>
+        <p>
+          Where clean code and thoughtful design unite to create simple,
+          engaging, and effective experiences.
+        </p>
+        <a href="images/Steff_cv.pdf" download="Steffani_Silva_CV.pdf" class="btn">
+          Download CV
+        </a>
+      </div>
 
-    <main>
-    <!-- About -->
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" class="hero-social-link">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/SteffaniSilva" target="_blank" class="hero-social-link">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://twitter.com/" target="_blank" class="hero-social-link">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank" class="hero-social-link">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+
+        <a href="mailto:silvasteffani2004@gmail.com" class="hero-social-link">
+          <i class="fas fa-envelope"></i>
+          <span>Email Me</span>
+        </a>
+      </div>
+    </section>
+  </header>
+
+  <main>
     <section id="about" class="about">
-        <div><img src="images/Me.jpg" alt="About Me"></div>
-        <div class="about-content">
-            <h2 class="section-title">About Me</h2><br>
-            <p>I'm a passionate Web Developer and Coder who loves creating clean, functional, and visually appealing digital experiences. I enjoy bringing ideas to life through code — designing responsive websites and developing efficient solutions that make technology simple and engaging for users.</p>
-            <p>With a strong interest in both front-end development and programming, I focus on writing clean, efficient code and crafting intuitive interfaces. I'm always eager to learn new technologies, improve my skills, and take on challenges that push my creativity and problem-solving abilities.</p>
-            <p>My goal is to contribute my creativity, technical skills, and enthusiasm to Circle Campus, helping to build impactful web solutions and strengthen its digital presence.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
-        </div>
+      <div class="about-image">
+        <img src="images/Me.jpg" alt="Steffani Silva">
+      </div>
+
+      <div class="about-content">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          I'm a passionate Computer Science undergraduate who enjoys creating clean,
+          functional, and visually appealing digital experiences. I love bringing ideas
+          to life through code and building solutions that feel simple and effective.
+        </p>
+        <p>
+          With a strong interest in web development, software design, and problem solving,
+          I focus on writing clean code and crafting intuitive user interfaces. I'm always
+          eager to learn new technologies and improve my skills through real projects.
+        </p>
+        <p>
+          My goal is to contribute my creativity, technical skills, and enthusiasm to
+          building impactful digital products while continuing to grow as a developer.
+        </p>
+      </div>
     </section>
 
-    <!-- Expertise -->
     <section id="expertise" class="expertise">
-        <h2 class="section-title">My Expertise</h2>
-        <div class="expertise-grid">
-            <div class="expertise-item">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Front-End Technologies</h3>
-                <p>HTML, CSS, JavaScript, and modern frameworks.</p>
-            </div>
-            <div class="expertise-item">
-                <i class="fas fa-code"></i>
-                <h3>Java Programming</h3>
-                <p>Building reliable and scalable applications.</p>
-            </div>
-            <div class="expertise-item">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Data Analysis</h3>
-                <p>Turning data into insights for smarter development.</p>
-            </div>
-            <div class="expertise-item">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Project Collaboration</h3>
-                <p>Working effectively in teams to deliver creative solutions.</p>
-            </div>
+      <h2 class="section-title">My Expertise</h2>
+      <p class="section-subtitle">
+        A blend of frontend development, programming, app development, and collaborative problem solving.
+      </p>
+
+      <div class="expertise-grid">
+        <div class="expertise-item">
+          <i class="fas fa-code"></i>
+          <h3>Programming</h3>
+          <p>Python, Java, and JavaScript for clean and maintainable software solutions.</p>
         </div>
+
+        <div class="expertise-item">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, and responsive interfaces built with a user-first approach.</p>
+        </div>
+
+        <div class="expertise-item">
+          <i class="fas fa-mobile-screen"></i>
+          <h3>App Development</h3>
+          <p>Flutter and backend integration for practical and scalable mobile applications.</p>
+        </div>
+
+        <div class="expertise-item">
+          <i class="fas fa-database"></i>
+          <h3>Data & Databases</h3>
+          <p>SQL, MongoDB, and data analysis techniques for insight-driven development.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Portfolio -->
     <section id="portfolio" class="portfolio">
-        <div class="portfolio-header">
-            <h2 class="section-title">Projects</h2>
-            <p>A selection of work spanning mobile applications, web platforms, and civic technology — built with care and purpose.</p>
-        </div>
+      <div class="portfolio-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Selected work spanning applications, websites, and data-driven solutions.
+        </p>
+      </div>
 
-        <!-- FEATURED: SafeLanka -->
-        <div class="featured-project">
-            <div class="featured-badge">⭐ Featured Project</div>
-            <div class="featured-inner">
+      <div class="featured-project">
 
-                <!-- Visual Side -->
-                <div class="featured-visual">
-                    <div class="phone-mockup-group">
-                        <!-- Primary phone -->
-                        <div class="phone-mockup primary">
-                            <div class="phone-screen">
-                                <div class="phone-header-bar">
-                                    <div class="dot"></div>
-                                    <span>SafeLanka</span>
-                                </div>
-                                <div class="phone-content">
-                                    <div class="phone-sos-btn">
-                                        <i class="fas fa-exclamation"></i>
-                                    </div>
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-file-alt"></i>
-                                        <span>Report a Crime</span>
-                                    </div>
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        <span>Pay Fine Online</span>
-                                    </div>
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-search"></i>
-                                        <span>Track My Case</span>
-                                    </div>
-                                    <div class="phone-stat-row">
-                                        <div class="phone-stat">
-                                            <div class="num">24/7</div>
-                                            <span class="lbl">Support</span>
-                                        </div>
-                                        <div class="phone-stat">
-                                            <div class="num">SOS</div>
-                                            <span class="lbl">Alert</span>
-                                        </div>
-                                        <div class="phone-stat">
-                                            <div class="num">Live</div>
-                                            <span class="lbl">Status</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="featured-inner">
+          <div class="featured-visual">
+            <div class="phone-mockup-group">
+              <div class="phone-mockup primary">
+                <div class="phone-screen">
+                  <div class="phone-header-bar">
+                    <div class="dot"></div>
+                    <span>Safe Lanka</span>
+                  </div>
 
-                        <!-- Secondary phone -->
-                        <div class="phone-mockup secondary">
-                            <div class="phone-screen">
-                                <div class="phone-header-bar">
-                                    <div class="dot"></div>
-                                    <span>Tips</span>
-                                </div>
-                                <div class="phone-content">
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-shield-alt"></i>
-                                        <span>Safety Tips</span>
-                                    </div>
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-bell"></i>
-                                        <span>Alerts</span>
-                                    </div>
-                                    <div class="phone-menu-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>Nearby Station</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  <div class="phone-content">
+                    <div class="phone-sos-btn">
+                      <i class="fas fa-exclamation"></i>
                     </div>
 
-                    <!-- Floating feature badges -->
-                    <div class="feature-float f1">
-                        <i class="fas fa-fire"></i>
-                        <span>SOS Emergency Alert</span>
+                    <div class="phone-menu-item">
+                      <i class="fas fa-file-alt"></i>
+                      <span>Crime Reporting</span>
                     </div>
-                    <div class="feature-float f2">
-                        <i class="fas fa-globe" style="color:#63c1bb"></i>
-                        <span>safelanka.lk — Live</span>
+
+                    <div class="phone-menu-item">
+                      <i class="fas fa-location-dot"></i>
+                      <span>SOS Alerts</span>
                     </div>
-                    <div class="feature-float f3">
-                        <i class="fas fa-lock"></i>
-                        <span>Secure Auth</span>
+
+                    <div class="phone-menu-item">
+                      <i class="fas fa-receipt"></i>
+                      <span>Fine Management</span>
                     </div>
+
+                    <div class="phone-stat-row">
+                      <div class="phone-stat">
+                        <div class="num">24/7</div>
+                        <span class="lbl">Support</span>
+                      </div>
+                      <div class="phone-stat">
+                        <div class="num">3</div>
+                        <span class="lbl">Core</span>
+                      </div>
+                      <div class="phone-stat">
+                        <div class="num">API</div>
+                        <span class="lbl">Linked</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <!-- Content Side -->
-                <div class="featured-content">
-                    <div class="project-type-tag">Mobile Application</div>
-                    <h3>Safe<span>Lanka</span></h3>
-                    <p class="featured-description">
-                        The only app directly linked to Sri Lanka's Police Dispatch Command Center. SafeLanka bridges the gap between citizens and emergency services — one tap sends your ID and geolocation to the nearest control room, with end-to-end encryption protecting every interaction. Built for Sinhala, Tamil, and English speakers.
-                    </p>
+              <div class="phone-mockup secondary">
+                <div class="phone-screen">
+                  <div class="phone-header-bar">
+                    <div class="dot"></div>
+                    <span>Modules</span>
+                  </div>
 
-                    <a href="https://safelanka.lk/" target="_blank" class="live-site-strip">
-                        <span class="live-dot"></span>
-                        <span class="live-label">Live at</span>
-                        <span class="live-url">safelanka.lk</span>
-                        <i class="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-
-                    <div class="impact-metrics">
-                        <div class="metric">
-                            <span class="metric-value">10+</span>
-                            <span class="metric-label">Features</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">3</span>
-                            <span class="metric-label">Languages</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">E2E</span>
-                            <span class="metric-label">Encrypted</span>
-                        </div>
+                  <div class="phone-content">
+                    <div class="phone-menu-item">
+                      <i class="fas fa-shield-alt"></i>
+                      <span>Safety Tips</span>
                     </div>
 
-                    <ul class="feature-list">
-                        <li>One-tap SOS to Dispatch Center</li>
-                        <li>Live Geolocation Sharing</li>
-                        <li>Anonymous Crime Reporting</li>
-                        <li>Traffic Fine Payments</li>
-                        <li>Case Tracking by Case ID</li>
-                        <li>Lost &amp; Found Item Reports</li>
-                        <li>NIC Integration (Anti-fake)</li>
-                        <li>3-Language Support (EN/SI/TA)</li>
-                        <li>Trusted Family SOS Alerts</li>
-                        <li>Nearest Station Locator</li>
-                    </ul>
-
-                    <div class="tech-stack">
-                        <span class="tech-pill highlight">Flutter</span>
-                        <span class="tech-pill highlight">NestJS</span>
-                        <span class="tech-pill highlight">Firebase</span>
-                        <span class="tech-pill">Dart</span>
-                        <span class="tech-pill">TypeScript</span>
-                        <span class="tech-pill">REST API</span>
-                        <span class="tech-pill">Firestore</span>
+                    <div class="phone-menu-item">
+                      <i class="fas fa-car"></i>
+                      <span>Traffic Updates</span>
                     </div>
 
-                    <div class="project-actions">
-                        <a href="https://safelanka.lk/" target="_blank" class="btn-primary">
-                            <i class="fas fa-globe"></i> Visit Live Site
-                        </a>
-                        <a href="https://github.com/SteffaniSilva" target="_blank" class="btn-outline">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                    <div class="phone-menu-item">
+                      <i class="fas fa-robot"></i>
+                      <span>AI Chatbot</span>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+
+          <div class="featured-content">
+            <div class="project-type-tag">Mobile Application</div>
+            <h3>Safe <span>Lanka</span></h3>
+            <p class="featured-description">
+              A cross-platform mobile application designed to improve communication between
+              citizens and authorities with SOS support, complaint tracking, traffic updates,
+              and user-focused features.
+            </p>
+
+            <div class="tech-stack">
+              <span class="tech-pill highlight">Flutter</span>
+              <span class="tech-pill highlight">Nest JS</span>
+              <span class="tech-pill highlight">MySQL</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Mobile UI</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="btn-primary">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+              <a href="#contact" class="btn-outline">
+                <i class="fas fa-paper-plane"></i> Contact Me
+              </a>
+            </div>
+          </div>
         </div>
-        <!-- END FEATURED -->
+      </div>
 
-        <!-- SECONDARY PROJECTS GRID -->
-        <div class="secondary-projects">
+      <div class="secondary-projects">
+        <article class="project-card">
+          <div class="card-visual tictactoe-visual">
+            <i class="fas fa-gamepad simple-visual-icon"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Web Application</span>
+              <span class="card-date">JavaScript</span>
+            </div>
+            <h3 class="card-title">Tic-Tac-Toe Game</h3>
+            <p class="card-desc">
+              An interactive browser-based game with dynamic logic, responsive layout,
+              and clean front-end implementation.
+            </p>
+            <div class="card-tech">
+              <span class="card-tech-pill">HTML</span>
+              <span class="card-tech-pill">CSS</span>
+              <span class="card-tech-pill">JavaScript</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
 
-            <!-- Opulenza -->
-            <article class="project-card">
-                <div class="card-visual opulenza-visual">
-                    <div class="luxury-mockup">
-                        <div class="luxury-header">
-                            <div class="luxury-logo">OPULENZA</div>
-                            <div class="luxury-nav-dots">
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="luxury-hero-img">
-                            <i class="fas fa-building luxury-icon-big"></i>
-                            <div class="luxury-price-tag">From $4,200 / mo</div>
-                        </div>
-                        <div class="luxury-footer">
-                            <div class="luxury-pill">Penthouse</div>
-                            <div class="luxury-pill">Pool</div>
-                            <div class="luxury-pill">Concierge</div>
-                        </div>
-                    </div>
-                    <div class="visual-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="card-tag">Web Application</span>
-                        <span class="card-date">2025</span>
-                    </div>
-                    <h3 class="card-title">Opulenza</h3>
-                    <p class="card-desc">A high-end luxury apartment browsing platform with immersive property views, elegant UI, and a curated search experience for discerning clientele. Built fully client-side with React.</p>
-                    <div class="card-tech">
-                        <span class="card-tech-pill">React</span>
-                        <span class="card-tech-pill">JavaScript</span>
-                        <span class="card-tech-pill">CSS Modules</span>
-                        <span class="card-tech-pill">Responsive</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
-                            View Project <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
+        <article class="project-card">
+          <div class="card-visual portfolio-visual">
+            <i class="fas fa-laptop simple-visual-icon"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Portfolio Website</span>
+              <span class="card-date">Frontend</span>
+            </div>
+            <h3 class="card-title">Personal Portfolio</h3>
+            <p class="card-desc">
+              A personal website created to showcase skills, projects, and experience with
+              a modern and engaging interface.
+            </p>
+            <div class="card-tech">
+              <span class="card-tech-pill">HTML</span>
+              <span class="card-tech-pill">CSS</span>
+              <span class="card-tech-pill">JavaScript</span>
+            </div>
+            <div class="card-footer">
+              <a href="#home" class="card-link">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
 
-            <!-- GreenLife Wellness -->
-            <article class="project-card">
-                <div class="card-visual greenlife-visual">
-                    <i class="fas fa-leaf simple-visual-icon green"></i>
-                    <div class="visual-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="card-tag">Website</span>
-                        <span class="card-date">Sep 2025</span>
-                    </div>
-                    <h3 class="card-title">GreenLife Wellness</h3>
-                    <p class="card-desc">A lifestyle and health platform inspiring natural, eco-friendly living through practical tips, informative blogs, and sustainable living guides.</p>
-                    <div class="card-tech">
-                        <span class="card-tech-pill">HTML</span>
-                        <span class="card-tech-pill">CSS</span>
-                        <span class="card-tech-pill">JavaScript</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Life Below Water -->
-            <article class="project-card">
-                <div class="card-visual ocean-visual">
-                    <i class="fas fa-water simple-visual-icon ocean"></i>
-                    <div class="visual-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="card-tag">Awareness Site</span>
-                        <span class="card-date">Apr 2025</span>
-                    </div>
-                    <h3 class="card-title">Life Below Water</h3>
-                    <p class="card-desc">An awareness website educating users on ocean conservation, highlighting marine biodiversity, and promoting sustainable practices to protect underwater ecosystems.</p>
-                    <div class="card-tech">
-                        <span class="card-tech-pill">HTML</span>
-                        <span class="card-tech-pill">CSS</span>
-                        <span class="card-tech-pill">JavaScript</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-        </div>
-        <!-- END SECONDARY -->
-
+        <article class="project-card">
+          <div class="card-visual traffic-visual">
+            <i class="fas fa-chart-line simple-visual-icon"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Data Analysis</span>
+              <span class="card-date">Python</span>
+            </div>
+            <h3 class="card-title">Traffic Analysis</h3>
+            <p class="card-desc">
+              A Python-based project focused on analyzing data patterns, trends,
+              and visual insights for smarter decisions.
+            </p>
+            <div class="card-tech">
+              <span class="card-tech-pill">Python</span>
+              <span class="card-tech-pill">Analysis</span>
+              <span class="card-tech-pill">Visualization</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
+                View Project <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
-    <!-- END PORTFOLIO -->
 
-    <!-- Contact -->
+    <section id="experience" class="experience">
+      <h2 class="section-title">Experience & Education</h2>
+      <p class="section-subtitle">
+        A quick overview of my academic background and project journey.
+      </p>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2024 - Present</span>
+            <h3>BSc (Hons) in Computer Science</h3>
+            <h4>IIT / University of Westminster</h4>
+            <p>Currently pursuing my undergraduate degree while building practical development skills.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2023</span>
+            <h3>Foundation Certification in Higher Education</h3>
+            <h4>IIT</h4>
+            <p>Completed my foundation program and strengthened my academic preparation for computing.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2023</span>
+            <h3>GCE Advanced Level</h3>
+            <h4>Ave Maria Convent, Negombo</h4>
+            <p>Completed advanced level education while growing my interest in software and web development.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">Project Experience</span>
+            <h3>Safe Lanka App</h3>
+            <h4>Mobile App Development</h4>
+            <p>Worked on user-facing features, system flow, project collaboration, and testing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+
     <section id="contact" class="contact">
-        <h2 class="section-title">Contact Me</h2>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-subtitle">
+        You can reach me directly through the contact details below.
+      </p>
 
-        <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+      <div class="contact-wrap single-contact">
+        <div class="contact-info">
+          <h3>Let’s Connect</h3>
+          <p>
+            I’m open to internships, freelance opportunities, collaborations, and project discussions.
+          </p>
 
-        <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-group">
-                <input type="text" id="name" name="from_name" class="form-control" placeholder="Your Name" required>
-                <span class="field-error" id="nameError">Please enter your name.</span>
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" name="from_email" class="form-control" placeholder="Your Email" required>
-                <span class="field-error" id="emailError">Please enter a valid email address.</span>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone Number (optional)">
-            </div>
-            <div class="form-group">
-                <select id="subject" name="subject" class="form-control" required>
-                    <option value="">Select a topic</option>
-                    <option value="Design Project">Design Project</option>
-                    <option value="Consultation">Consultation</option>
-                    <option value="Other">Other</option>
-                </select>
-                <span class="field-error" id="subjectError">Please select a topic.</span>
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
-                <span class="field-error" id="messageError">Please enter a message.</span>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">I agree to the terms and conditions</label>
-            </div>
-            <span class="field-error" id="termsError" style="display:block;margin-bottom:14px;">You must agree to the terms.</span>
-
-            <button type="submit" class="btn" id="submitBtn">
-                <span id="btnText">Send Message</span>
-                <span id="btnSpinner" style="display:none;">
-                    <i class="fas fa-circle-notch fa-spin"></i> Sending…
-                </span>
-            </button>
-        </form>
-    </section>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-    (function () {
-        const EMAILJS_PUBLIC_KEY  = 'BEco5dMX5XPPhilfN';
-        const EMAILJS_SERVICE_ID  = 'service_i805g8v';
-        const EMAILJS_TEMPLATE_ID = 'template_u6m5z03';
-
-        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-
-        function showError(fieldId, errorId, show) {
-            const field = document.getElementById(fieldId);
-            const err   = document.getElementById(errorId);
-            if (!field || !err) return;
-            if (show) {
-                field.classList.add('input-error');
-                err.style.display = 'block';
-            } else {
-                field.classList.remove('input-error');
-                err.style.display = 'none';
-            }
-        }
-
-        function showToast(message, type) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.className = 'toast toast-' + type + ' toast-show';
-            setTimeout(() => { toast.className = 'toast'; }, 5000);
-        }
-
-        function setLoading(loading) {
-            document.getElementById('btnText').style.display    = loading ? 'none'         : 'inline';
-            document.getElementById('btnSpinner').style.display = loading ? 'inline-block'  : 'none';
-            document.getElementById('submitBtn').disabled       = loading;
-        }
-
-        ['name','email','subject','message'].forEach(function(id) {
-            const el = document.getElementById(id);
-            if (el) el.addEventListener('input', function() {
-                el.classList.remove('input-error');
-                const errEl = document.getElementById(id + 'Error');
-                if (errEl) errEl.style.display = 'none';
-            });
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name    = document.getElementById('name').value.trim();
-            const email   = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value.trim();
-            const terms   = document.getElementById('terms').checked;
-
-            let valid = true;
-            showError('name',    'nameError',    !name);          if (!name)    valid = false;
-            showError('email',   'emailError',   !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) valid = false;
-            showError('subject', 'subjectError', !subject);        if (!subject) valid = false;
-            showError('message', 'messageError', !message);        if (!message) valid = false;
-
-            const termsErr = document.getElementById('termsError');
-            if (!terms) {
-                termsErr.style.display = 'block';
-                valid = false;
-            } else {
-                termsErr.style.display = 'none';
-            }
-
-            if (!valid) return;
-
-            if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-                showToast('⚠️ EmailJS is not configured yet. See the code comments to set it up.', 'error');
-                return;
-            }
-
-            setLoading(true);
-
-            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
-                .then(function () {
-                    setLoading(false);
-                    showToast('✅ Message sent! I\'ll get back to you soon.', 'success');
-                    document.getElementById('contactForm').reset();
-                })
-                .catch(function (err) {
-                    setLoading(false);
-                    showToast('❌ Something went wrong. Please try emailing me directly at silvasteffani2004@gmail.com', 'error');
-                    console.error('EmailJS error:', err);
-                });
-        });
-    })();
-    </script>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-
-                <!-- Quick Links -->
-                <div class="footer-section links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="Main.html">Home</a></li>
-                        <li><a href="About.html">About</a></li>
-                        <li><a href="Portfolio.html">Portfolio</a></li>
-                        <li><a href="Contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section links">
-                    <h3>Contact Info</h3>
-                    <!-- ✅ FIXED: Plain, visible email address -->
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>
-                            <a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a>
-                        </span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+94 74 014 8998</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Negombo, Sri Lanka</span>
-                    </div>
-                </div>
-
-                <!-- Social -->
-                <div class="footer-section social">
-                    <h3>Connect With Me</h3>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/SteffaniSilva" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
+          <div class="contact-list">
+            <div class="contact-list-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a>
+              </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 Steffani. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+            <div class="contact-list-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <span>+94 74 014 8998</span>
+              </div>
             </div>
+
+            <div class="contact-list-item">
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <strong>Location</strong>
+                <span>Negombo, Sri Lanka</span>
+              </div>
+            </div>
+
+            <div class="contact-list-item">
+              <i class="fab fa-linkedin"></i>
+              <div>
+                <strong>LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank">
+                  linkedin.com/in/steffani-silva-
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-list-item">
+              <i class="fab fa-github"></i>
+              <div>
+                <strong>GitHub</strong>
+                <a href="https://github.com/SteffaniSilva" target="_blank">
+                  github.com/SteffaniSilva
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <!-- Back to top -->
-    <a href="#home" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About</h3>
+          <p>
+            A personal portfolio focused on clean code, thoughtful design, and effective digital experiences.
+          </p>
+        </div>
 
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span><a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+94 74 014 8998</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Negombo, Sri Lanka</span>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/SteffaniSilva" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Steffani Silva. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    const navLinks = document.querySelectorAll("nav ul li a");
+    const sections = document.querySelectorAll("section[id]");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>

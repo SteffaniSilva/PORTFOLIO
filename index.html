@@ -12,1644 +12,1660 @@
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'DM Sans', sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+font-family: 'DM Sans', sans-serif;
     }
 
-    :root {
-      --bg: #000000;
-      --bg-soft: #072e33;
-      --card: #0a2428;
-      --accent: #63c1bb;
-      --accent-dark: #3a9295;
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.72);
-      --muted-2: rgba(255,255,255,0.48);
-      --border: rgba(99,193,187,0.18);
-    }
+            :root {
+    --bg: #000000;
+    --bg-soft: #072e33;
+    --card: #0a2428;
+    --accent: #63c1bb;
+    --accent-dark: #3a9295;
+    --text: #ffffff;
+    --muted: rgba(255,255,255,0.72);
+    --muted-2: rgba(255,255,255,0.48);
+    --border: rgba(99,193,187,0.18);
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+body {
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+img {
+    max-width: 100%;
+    display: block;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    ul {
-      list-style: none;
-    }
+ul {
+    list-style: none;
+}
 
-    section {
-      scroll-margin-top: 100px;
-    }
+section {
+    scroll-margin-top: 100px;
+}
 
-    header {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.76)),
-        url("images/background.jpeg");
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
+header {
+    min-height: 100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.76)),
+            url("images/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 26px 48px;
-      flex-wrap: wrap;
-    }
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 48px;
+    flex-wrap: wrap;
+}
 
     .logo {
-      font-family: 'Syne', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      color: var(--accent);
-      font-size: 24px;
-      font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+nav ul {
+display: flex;
+align-items: center;
+gap: 42px;
     }
 
-    nav ul {
-      display: flex;
-      align-items: center;
-      gap: 42px;
-    }
+nav ul li a {
+color: #fff;
+font-size: 18px;
+position: relative;
+font-weight: 500;
+        }
 
-    nav ul li a {
-      color: #fff;
-      font-size: 18px;
-      position: relative;
-      font-weight: 500;
-    }
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 3px;
+    background: var(--accent-dark);
+    transition: 0.35s ease;
+}
 
-    nav ul li a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 0;
-      height: 3px;
-      background: var(--accent-dark);
-      transition: 0.35s ease;
-    }
-
-    nav ul li a:hover::after,
-    nav ul li a.active::after {
-      width: 100%;
-    }
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
 
     .hero {
-      min-height: calc(100vh - 90px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      padding: 40px 5% 70px;
-    }
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px 5% 70px;
+}
 
     .hero-content {
-      max-width: 760px;
-      animation: fadeIn 1.2s ease;
-    }
+    max-width: 760px;
+    animation: fadeIn 1.2s ease;
+}
 
     .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: 4.2rem;
-      line-height: 1.06;
-      margin-bottom: 24px;
-      color: white;
-      letter-spacing: -1px;
+font-family: 'Syne', sans-serif;
+font-size: 4.2rem;
+line-height: 1.06;
+margin-bottom: 24px;
+color: white;
+letter-spacing: -1px;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: white;
-      max-width: 650px;
-      margin-bottom: 30px;
-      font-weight: 300;
-    }
+            .hero p {
+font-size: 1.2rem;
+color: white;
+max-width: 650px;
+margin-bottom: 30px;
+font-weight: 300;
+        }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--accent-dark);
-      color: white;
-      padding: 16px 30px;
-      border-radius: 999px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--accent-dark);
+    color: white;
+    padding: 16px 30px;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(58,146,149,0.35);
-    }
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(58,146,149,0.35);
+}
 
     .hero-socials {
-      min-width: 260px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-right: 10px;
-    }
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-right: 10px;
+}
 
     .hero-social-link {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: white;
-      padding: 12px 8px;
-      transition: all 0.3s ease;
-      border-radius: 12px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: white;
+    padding: 12px 8px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
 
     .hero-social-link:hover {
-      transform: translateX(-10px);
-      background: rgba(255,255,255,0.06);
-    }
+    transform: translateX(-10px);
+    background: rgba(255,255,255,0.06);
+}
 
     .hero-social-link i {
-      width: 34px;
-      text-align: center;
-      font-size: 2rem;
-      color: white;
+width: 34px;
+text-align: center;
+font-size: 2rem;
+color: white;
     }
 
-    .hero-social-link span {
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
+            .hero-social-link span {
+font-size: 1.1rem;
+font-weight: 500;
+        }
 
-    .section-title {
-      text-align: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 18px;
-      color: white;
-      position: relative;
-    }
+        .section-title {
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 18px;
+    color: white;
+    position: relative;
+}
 
     .section-title::after {
-      content: "";
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -14px;
-      border-radius: 999px;
-    }
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -14px;
+    border-radius: 999px;
+}
 
     .section-subtitle {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 60px;
-      color: var(--muted-2);
-      font-size: 1rem;
-    }
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 60px;
+    color: var(--muted-2);
+    font-size: 1rem;
+}
 
     .about,
-    .expertise,
-    .portfolio,
-    .experience,
-    .testimonials,
-    .contact {
-      padding: 90px 5%;
-      background: #000;
-    }
+        .expertise,
+        .portfolio,
+        .experience,
+        .testimonials,
+        .contact {
+    padding: 90px 5%;
+    background: #000;
+}
 
     .about {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
 
     .about-image {
-      flex: 1;
-    }
+    flex: 1;
+}
 
     .about-image img {
-      border-radius: 24px;
-      border: 1px solid var(--border);
+border-radius: 24px;
+border: 1px solid var(--border);
     }
 
-    .about-content {
-      flex: 1.2;
-    }
+            .about-content {
+    flex: 1.2;
+}
 
     .about-content h2 {
-      text-align: left;
-      margin-bottom: 32px;
+text-align: left;
+margin-bottom: 32px;
     }
 
-    .about-content h2::after {
-      left: 0;
-      transform: none;
-    }
+            .about-content h2::after {
+    left: 0;
+    transform: none;
+}
 
     .about-content p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 1rem;
+color: var(--muted);
+margin-bottom: 18px;
+font-size: 1rem;
     }
 
-    .expertise-grid,
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
+            .expertise-grid,
+        .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
 
     .expertise-item,
-    .testimonial-card,
-    .timeline-card,
-    .contact-info {
-      background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      transition: 0.3s ease;
-    }
+        .testimonial-card,
+        .timeline-card,
+        .contact-info {
+    background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    transition: 0.3s ease;
+}
 
     .expertise-item:hover,
-    .testimonial-card:hover,
-    .timeline-card:hover,
-    .contact-info:hover {
-      transform: translateY(-6px);
-      border-color: rgba(99,193,187,0.45);
-    }
+        .testimonial-card:hover,
+        .timeline-card:hover,
+        .contact-info:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99,193,187,0.45);
+}
 
     .expertise-item i {
-      font-size: 2.2rem;
-      color: var(--accent);
-      margin-bottom: 16px;
+font-size: 2.2rem;
+color: var(--accent);
+margin-bottom: 16px;
     }
 
-    .expertise-item h3,
+            .expertise-item h3,
     .timeline-card h3 {
-      font-family: 'Syne', sans-serif;
-      margin-bottom: 10px;
-      color: white;
+font-family: 'Syne', sans-serif;
+margin-bottom: 10px;
+color: white;
     }
 
-    .expertise-item p,
+            .expertise-item p,
     .timeline-card p,
     .testimonial-card p,
     .contact-info p {
-      color: var(--muted);
+color: var(--muted);
     }
 
-    .portfolio-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+            .portfolio-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
 
     .featured-project {
-      background: linear-gradient(135deg, #051e22 0%, #0a3038 50%, #0d3d47 100%);
-      border: 1px solid rgba(99,193,187,0.2);
-      border-radius: 24px;
-      overflow: hidden;
-      margin-bottom: 34px;
-    }
+    background: linear-gradient(135deg, #051e22 0%, #0a3038 50%, #0d3d47 100%);
+    border: 1px solid rgba(99,193,187,0.2);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 34px;
+}
 
     .featured-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 520px;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+}
 
     .featured-visual {
-      position: relative;
-      background: linear-gradient(160deg, #0e4550 0%, #072e33 60%, #030f11 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 40px;
-      overflow: hidden;
-    }
+    position: relative;
+    background: linear-gradient(160deg, #0e4550 0%, #072e33 60%, #030f11 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    overflow: hidden;
+}
 
     .featured-badge {
-      position: absolute;
-      top: 26px;
-      left: 26px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 7px 16px;
-      border-radius: 50px;
-      z-index: 10;
-      font-family: 'Syne', sans-serif;
-    }
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 50px;
+    z-index: 10;
+    font-family: 'Syne', sans-serif;
+}
 
     .phone-mockup-group {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: flex-end;
-    }
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+}
 
     .phone-mockup {
-      width: 140px;
-      height: 280px;
-      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-      border-radius: 28px;
-      border: 2px solid rgba(99,193,187,0.3);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    }
+    width: 140px;
+    height: 280px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 28px;
+    border: 2px solid rgba(99,193,187,0.3);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
 
     .phone-mockup.primary {
-      width: 160px;
-      height: 320px;
-      z-index: 3;
-      border-color: rgba(99,193,187,0.6);
-    }
+    width: 160px;
+    height: 320px;
+    z-index: 3;
+    border-color: rgba(99,193,187,0.6);
+}
 
     .phone-mockup.secondary {
-      margin-left: -28px;
-      margin-bottom: 22px;
-      opacity: 0.78;
-    }
+    margin-left: -28px;
+    margin-bottom: 22px;
+    opacity: 0.78;
+}
 
     .phone-screen {
-      position: absolute;
-      inset: 20px 8px 8px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0d1117;
-      display: flex;
-      flex-direction: column;
-    }
+    position: absolute;
+    inset: 20px 8px 8px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0d1117;
+    display: flex;
+    flex-direction: column;
+}
 
     .phone-header-bar {
-      background: linear-gradient(135deg, #1e3a5f, #0d2137);
-      padding: 10px 12px 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    background: linear-gradient(135deg, #1e3a5f, #0d2137);
+    padding: 10px 12px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
     .phone-header-bar .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: rgba(99,193,187,0.7);
-    }
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(99,193,187,0.7);
+}
 
     .phone-header-bar span {
-      font-size: 0.55rem;
-      color: rgba(255,255,255,0.72);
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-family: 'Syne', sans-serif;
+font-size: 0.55rem;
+color: rgba(255,255,255,0.72);
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: uppercase;
+font-family: 'Syne', sans-serif;
     }
 
-    .phone-content {
-      flex: 1;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+            .phone-content {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
     .phone-sos-btn {
-      background: linear-gradient(135deg, #c0392b, #e74c3c);
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      margin: 6px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(231,76,60,0.5);
-    }
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    margin: 6px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(231,76,60,0.5);
+}
 
     .phone-menu-item {
-      background: rgba(99,193,187,0.08);
-      border: 1px solid rgba(99,193,187,0.12);
-      border-radius: 8px;
-      padding: 6px 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    background: rgba(99,193,187,0.08);
+    border: 1px solid rgba(99,193,187,0.12);
+    border-radius: 8px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
     .phone-menu-item i {
-      color: var(--accent);
-      font-size: 0.65rem;
-      width: 14px;
+color: var(--accent);
+font-size: 0.65rem;
+width: 14px;
     }
 
-    .phone-menu-item span {
-      font-size: 0.5rem;
-      color: rgba(255,255,255,0.76);
-      font-weight: 500;
-    }
+            .phone-menu-item span {
+font-size: 0.5rem;
+color: rgba(255,255,255,0.76);
+font-weight: 500;
+        }
 
-    .phone-stat-row {
-      display: flex;
-      gap: 4px;
-      margin-top: 2px;
-    }
+        .phone-stat-row {
+    display: flex;
+    gap: 4px;
+    margin-top: 2px;
+}
 
     .phone-stat {
-      flex: 1;
-      background: rgba(255,255,255,0.05);
-      border-radius: 6px;
-      padding: 6px;
-      text-align: center;
-    }
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+}
 
     .phone-stat .num {
-      font-size: 0.65rem;
-      color: var(--accent);
-      font-weight: 800;
-      font-family: 'Syne', sans-serif;
-    }
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+}
 
     .phone-stat .lbl {
-      font-size: 0.38rem;
-      color: rgba(255,255,255,0.42);
-      display: block;
-    }
+    font-size: 0.38rem;
+    color: rgba(255,255,255,0.42);
+    display: block;
+}
 
     .featured-content {
-      padding: 60px 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
     .project-type-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-      font-family: 'Syne', sans-serif;
-    }
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-family: 'Syne', sans-serif;
+}
 
     .project-type-tag::before {
-      content: "";
-      width: 20px;
-      height: 2px;
-      background: var(--accent);
-    }
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+}
 
     .featured-content h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: white;
-      line-height: 1.15;
-      margin-bottom: 18px;
+font-family: 'Syne', sans-serif;
+font-size: 2.6rem;
+font-weight: 800;
+color: white;
+line-height: 1.15;
+margin-bottom: 18px;
     }
 
-    .featured-content h3 span {
-      color: var(--accent);
-    }
+            .featured-content h3 span {
+    color: var(--accent);
+}
 
     .featured-description {
-      color: rgba(255,255,255,0.66);
-      font-size: 1rem;
-      line-height: 1.75;
-      margin-bottom: 28px;
-      max-width: 460px;
-    }
+    color: rgba(255,255,255,0.66);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 460px;
+}
 
     .tech-stack,
-    .card-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 26px;
-    }
+        .card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 26px;
+}
 
     .tech-pill,
-    .card-tech-pill {
-      padding: 5px 14px;
-      border-radius: 50px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      border: 1px solid rgba(99,193,187,0.28);
-      color: rgba(255,255,255,0.78);
-      background: rgba(99,193,187,0.06);
-    }
+        .card-tech-pill {
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border: 1px solid rgba(99,193,187,0.28);
+    color: rgba(255,255,255,0.78);
+    background: rgba(99,193,187,0.06);
+}
 
     .tech-pill.highlight {
-      background: rgba(99,193,187,0.15);
-      border-color: rgba(99,193,187,0.52);
-      color: var(--accent);
-    }
+    background: rgba(99,193,187,0.15);
+    border-color: rgba(99,193,187,0.52);
+    color: var(--accent);
+}
 
     .project-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
 
     .btn-primary,
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 50px;
-      padding: 13px 24px;
-      font-weight: 700;
-      transition: 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
+        .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 50px;
+    padding: 13px 24px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: white;
-    }
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: white;
+}
 
     .btn-outline {
-      border: 1px solid rgba(255,255,255,0.16);
-      color: rgba(255,255,255,0.8);
-      background: transparent;
-    }
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.8);
+    background: transparent;
+}
 
     .btn-outline:hover,
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
+        .btn-primary:hover {
+    transform: translateY(-2px);
+}
 
     .secondary-projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
 
     .project-card {
-      background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
-      border: 1px solid rgba(99,193,187,0.12);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.35s ease;
-    }
+    background: linear-gradient(135deg, #0a2428 0%, #072e33 100%);
+    border: 1px solid rgba(99,193,187,0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
 
     .project-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(99,193,187,0.35);
-    }
+    transform: translateY(-8px);
+    border-color: rgba(99,193,187,0.35);
+}
 
     .card-visual {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
 
     .card-visual.tictactoe-visual {
-      background: linear-gradient(135deg, #1b1035, #241457, #1b335a);
-    }
+    background: linear-gradient(135deg, #1b1035, #241457, #1b335a);
+}
 
     .card-visual.portfolio-visual {
-      background: linear-gradient(135deg, #0b1b1e, #12383f, #0d2530);
-    }
+    background: linear-gradient(135deg, #0b1b1e, #12383f, #0d2530);
+}
 
     .card-visual.traffic-visual {
-      background: linear-gradient(135deg, #081a12, #0f3226, #12384b);
-    }
+    background: linear-gradient(135deg, #081a12, #0f3226, #12384b);
+}
+
+    .card-visual.opulenza-visual {
+    background: linear-gradient(135deg, #1d1836, #263760, #0e5f68);
+}
+
+    .card-visual.api-visual {
+    background: linear-gradient(135deg, #101b2b, #123b54, #0f6b5f);
+}
+
+    .card-visual.todo-visual {
+    background: linear-gradient(135deg, #1c1b12, #3a3214, #446229);
+}
 
     .simple-visual-icon {
-      font-size: 3rem;
-      opacity: 0.42;
-      color: white;
-    }
+    font-size: 3rem;
+    opacity: 0.42;
+    color: white;
+}
 
     .card-body {
-      padding: 26px;
-    }
+    padding: 26px;
+}
 
     .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
 
     .card-tag {
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-family: 'Syne', sans-serif;
-    }
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Syne', sans-serif;
+}
 
     .card-date {
-      font-size: 0.76rem;
-      color: rgba(255,255,255,0.35);
-    }
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.35);
+}
 
     .card-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-    }
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
 
     .card-desc {
-      color: rgba(255,255,255,0.58);
-      margin-bottom: 20px;
-      font-size: 0.92rem;
-    }
+    color: rgba(255,255,255,0.58);
+    margin-bottom: 20px;
+    font-size: 0.92rem;
+}
 
     .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
 
     .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      font-weight: 700;
-    }
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-weight: 700;
+}
 
     .card-icon-link {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(99,193,187,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.45);
-    }
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(99,193,187,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.45);
+}
 
     .timeline-wrapper {
-      max-width: 950px;
-      margin: 0 auto;
-      position: relative;
-    }
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+}
 
     .timeline-wrapper::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(99,193,187,0), rgba(99,193,187,0.7), rgba(99,193,187,0));
-    }
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(99,193,187,0), rgba(99,193,187,0.7), rgba(99,193,187,0));
+}
 
     .timeline-item {
-      width: 50%;
-      padding: 18px 28px;
-      position: relative;
-    }
+    width: 50%;
+    padding: 18px 28px;
+    position: relative;
+}
 
     .timeline-item.left {
-      left: 0;
-      text-align: right;
-    }
+    left: 0;
+    text-align: right;
+}
 
     .timeline-item.right {
-      left: 50%;
-      text-align: left;
-    }
+    left: 50%;
+    text-align: left;
+}
 
     .timeline-dot {
-      position: absolute;
-      top: 28px;
-      width: 18px;
-      height: 18px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(99,193,187,0.12);
-    }
+    position: absolute;
+    top: 28px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(99,193,187,0.12);
+}
 
     .timeline-item.left .timeline-dot {
-      right: -9px;
-    }
+    right: -9px;
+}
 
     .timeline-item.right .timeline-dot {
-      left: -9px;
-    }
+    left: -9px;
+}
 
     .timeline-year {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border-radius: 50px;
-      background: rgba(99,193,187,0.12);
-      color: var(--accent);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-family: 'Syne', sans-serif;
-    }
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: rgba(99,193,187,0.12);
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+}
 
     .timeline-card h4 {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+font-size: 0.95rem;
+color: var(--accent);
+margin-bottom: 10px;
+font-weight: 700;
+        }
 
-    .stars {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 18px;
-      color: #f1c40f;
-    }
+        .stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+    color: #f1c40f;
+}
 
     .testimonial-card p {
-      min-height: 110px;
-      margin-bottom: 22px;
-      line-height: 1.8;
-    }
+min-height: 110px;
+margin-bottom: 22px;
+line-height: 1.8;
+        }
 
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+        .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
 
     .author-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-family: 'Syne', sans-serif;
-    }
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+}
 
     .author-info strong {
-      display: block;
-      color: white;
+display: block;
+color: white;
     }
 
-    .author-info span {
-      color: var(--muted-2);
-      font-size: 0.85rem;
+            .author-info span {
+color: var(--muted-2);
+font-size: 0.85rem;
     }
 
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+            .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
     .single-contact {
-      justify-content: center;
-    }
+    justify-content: center;
+}
 
     .contact-info h3 {
-      font-family: 'Syne', sans-serif;
-      margin-bottom: 12px;
-      font-size: 1.4rem;
+font-family: 'Syne', sans-serif;
+margin-bottom: 12px;
+font-size: 1.4rem;
     }
 
-    .contact-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 20px;
-    }
+            .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
 
     .contact-list-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 14px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 14px;
+}
 
     .contact-list-item i {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(99,193,187,0.12);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: rgba(99,193,187,0.12);
+color: var(--accent);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+        }
+
+        .contact-list-item strong {
+display: block;
+margin-bottom: 3px;
     }
 
-    .contact-list-item strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .contact-list-item span,
+            .contact-list-item span,
     .contact-list-item a {
-      color: var(--muted);
-      font-size: 0.95rem;
+color: var(--muted);
+font-size: 0.95rem;
     }
 
-    footer {
-      background: var(--bg-soft);
-      color: #ecf0f1;
-      padding: 60px 0 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+footer {
+    background: var(--bg-soft);
+    color: #ecf0f1;
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
 
     .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
     .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
 
     .footer-section {
-      flex: 1 1 250px;
-      min-width: 250px;
-    }
+    flex: 1 1 250px;
+    min-width: 250px;
+}
 
     .footer-section h3 {
-      font-size: 1.45rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-      color: white;
-      font-family: 'Syne', sans-serif;
+font-size: 1.45rem;
+margin-bottom: 20px;
+position: relative;
+padding-bottom: 10px;
+color: white;
+font-family: 'Syne', sans-serif;
     }
 
-    .footer-section h3::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 50px;
-      height: 2px;
-      background: var(--accent);
-    }
+            .footer-section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
 
     .footer-section p {
-      color: #c5d0d3;
+color: #c5d0d3;
     }
 
-    .footer-section ul li {
-      margin-bottom: 12px;
-    }
+            .footer-section ul li {
+    margin-bottom: 12px;
+}
 
     .footer-section ul li a {
-      color: #bdc3c7;
-      transition: 0.3s ease;
+color: #bdc3c7;
+transition: 0.3s ease;
     }
 
-    .footer-section ul li a:hover {
-      color: var(--accent);
-    }
+            .footer-section ul li a:hover {
+    color: var(--accent);
+}
 
     .social-links {
-      display: flex;
-      gap: 14px;
-    }
+    display: flex;
+    gap: 14px;
+}
 
     .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      color: #ecf0f1;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+color: #ecf0f1;
+border: 1px solid rgba(255,255,255,0.1);
+transition: 0.3s ease;
     }
 
-    .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-      border-color: rgba(99,193,187,0.4);
-    }
+            .social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+    border-color: rgba(99,193,187,0.4);
+}
 
     .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
 
     .contact-item i {
-      color: var(--accent);
-      font-size: 18px;
-      width: 20px;
-      text-align: center;
-      margin-top: 3px;
+color: var(--accent);
+font-size: 18px;
+width: 20px;
+text-align: center;
+margin-top: 3px;
     }
 
-    .contact-item span,
+            .contact-item span,
     .contact-item a {
-      color: #bdc3c7;
+color: #bdc3c7;
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
+            .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
 
     .footer-bottom p,
     .footer-bottom a {
-      color: #bdc3c7;
+color: #bdc3c7;
     }
 
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 48px;
-      height: 48px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      z-index: 999;
-      transition: 0.3s ease;
-    }
+            .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: 0.3s ease;
+}
 
     .back-to-top:hover {
-      transform: translateY(-3px);
-      background: var(--accent-dark);
-    }
+    transform: translateY(-3px);
+    background: var(--accent-dark);
+}
 
-    @keyframes fadeIn {
-      from {
+@keyframes fadeIn {
+    from {
         opacity: 0;
         transform: translateY(16px);
-      }
-      to {
+    }
+    to {
         opacity: 1;
         transform: translateY(0);
-      }
     }
+}
 
-    @media (max-width: 1100px) {
-      .hero {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+@media (max-width: 1100px) {
+        .hero {
+    flex-direction: column;
+    align-items: flex-start;
+}
 
       .hero-socials {
-        width: 100%;
-        margin-top: 10px;
-      }
+    width: 100%;
+    margin-top: 10px;
+}
 
       .about {
-        flex-direction: column;
-      }
+    flex-direction: column;
+}
     }
 
-    @media (max-width: 900px) {
-      .featured-inner {
-        grid-template-columns: 1fr;
-      }
+@media (max-width: 900px) {
+        .featured-inner {
+    grid-template-columns: 1fr;
+}
 
       .timeline-wrapper::before {
-        left: 18px;
-        transform: none;
-      }
+    left: 18px;
+    transform: none;
+}
 
       .timeline-item,
-      .timeline-item.left,
-      .timeline-item.right {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding-left: 50px;
-        padding-right: 0;
-      }
+        .timeline-item.left,
+        .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 0;
+}
 
       .timeline-item.left .timeline-dot,
-      .timeline-item.right .timeline-dot {
-        left: 9px;
-        right: auto;
-      }
+        .timeline-item.right .timeline-dot {
+    left: 9px;
+    right: auto;
+}
     }
 
-    @media (max-width: 768px) {
-      nav {
-        padding: 18px 20px;
-        flex-direction: column;
-        gap: 16px;
+@media (max-width: 768px) {
+nav {
+    padding: 18px 20px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+nav ul {
+gap: 18px;
+justify-content: center;
+flex-wrap: wrap;
       }
 
-      nav ul {
-        gap: 18px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
+              .logo {
+    font-size: 20px;
+}
 
       .hero {
-        padding: 30px 5% 50px;
-      }
+    padding: 30px 5% 50px;
+}
 
       .hero h1 {
-        font-size: 2.7rem;
+font-size: 2.7rem;
       }
 
-      .hero p {
-        font-size: 1rem;
+              .hero p {
+font-size: 1rem;
       }
 
-      .footer-container {
-        padding: 0 20px;
-      }
+              .footer-container {
+    padding: 0 20px;
+}
 
       .footer-content,
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+        .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+}
 
       .back-to-top {
-        width: 42px;
-        height: 42px;
-        bottom: 20px;
-        right: 20px;
-      }
+    width: 42px;
+    height: 42px;
+    bottom: 20px;
+    right: 20px;
+}
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">STEFFANI SILVA</div>
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<header>
+  <nav>
+    <div class="logo">STEFFANI SILVA</div>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1>
-          Digital Experiences<br>
-          Human-Centered<br>
-          Simple Engaging<br>
-          Effective
-        </h1>
-        <p>
-          Where clean code and thoughtful design unite to create simple,
-          engaging, and effective experiences.
-        </p>
-        <a href="images/Steff_cv.pdf" download="Steffani_Silva_CV.pdf" class="btn">
-          Download CV
-        </a>
-      </div>
-
-      <div class="hero-socials">
-        <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" class="hero-social-link">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-
-        <a href="https://github.com/SteffaniSilva" target="_blank" class="hero-social-link">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
-        </a>
-
-        <a href="https://twitter.com/" target="_blank" class="hero-social-link">
-          <i class="fab fa-twitter"></i>
-          <span>Twitter</span>
-        </a>
-
-        <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" class="hero-social-link">
-          <i class="fab fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
-        
-
-        <a href="mailto:silvasteffani2004@gmail.com" class="hero-social-link">
-          <i class="fas fa-envelope"></i>
-          <span>Email Me</span>
-        </a>
-      </div>
-    </section>
-  </header>
-
-  <main>
-    <section id="about" class="about">
-      <div class="about-image">
-        <img src="images/Me.jpg" alt="Steffani Silva">
-      </div>
-
-      <div class="about-content">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          I'm a passionate Computer Science undergraduate who enjoys creating clean,
-          functional, and visually appealing digital experiences. I love bringing ideas
-          to life through code and building solutions that feel simple and effective.
-        </p>
-        <p>
-          With a strong interest in web development, software design, and problem solving,
-          I focus on writing clean code and crafting intuitive user interfaces. I'm always
-          eager to learn new technologies and improve my skills through real projects.
-        </p>
-        <p>
-          My goal is to contribute my creativity, technical skills, and enthusiasm to
-          building impactful digital products while continuing to grow as a developer.
-        </p>
-      </div>
-    </section>
-
-    <section id="expertise" class="expertise">
-      <h2 class="section-title">My Expertise</h2>
-      <p class="section-subtitle">
-        A blend of frontend development, programming, app development, and collaborative problem solving.
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>
+        Digital Experiences<br>
+        Human-Centered<br>
+        Simple Engaging<br>
+        Effective
+      </h1>
+      <p>
+        Where clean code and thoughtful design unite to create simple,
+        engaging, and effective experiences.
       </p>
+      <a href="images/Steff_cv.pdf" download="Steffani_Silva_CV.pdf" class="btn">
+        Download CV
+      </a>
+    </div>
 
-      <div class="expertise-grid">
-        <div class="expertise-item">
-          <i class="fas fa-code"></i>
-          <h3>Programming</h3>
-          <p>Python, Java, and JavaScript for clean and maintainable software solutions.</p>
-        </div>
+    <div class="hero-socials">
+      <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" class="hero-social-link">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
 
-        <div class="expertise-item">
-          <i class="fas fa-laptop-code"></i>
-          <h3>Web Development</h3>
-          <p>HTML, CSS, JavaScript, and responsive interfaces built with a user-first approach.</p>
-        </div>
+      <a href="https://github.com/SteffaniSilva" target="_blank" class="hero-social-link">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
 
-        <div class="expertise-item">
-          <i class="fas fa-mobile-screen"></i>
-          <h3>App Development</h3>
-          <p>Flutter and backend integration for practical and scalable mobile applications.</p>
-        </div>
+      <a href="https://twitter.com/" target="_blank" class="hero-social-link">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+      </a>
 
-        <div class="expertise-item">
-          <i class="fas fa-database"></i>
-          <h3>Data & Databases</h3>
-          <p>SQL, MongoDB, and data analysis techniques for insight-driven development.</p>
-        </div>
-      </div>
-    </section>
+      <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" class="hero-social-link">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
 
-    <section id="portfolio" class="portfolio">
-      <div class="portfolio-header">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">
-          Selected work spanning applications, websites, and data-driven solutions.
-        </p>
-      </div>
 
-      <div class="featured-project">
+      <a href="mailto:silvasteffani2004@gmail.com" class="hero-social-link">
+        <i class="fas fa-envelope"></i>
+        <span>Email Me</span>
+      </a>
+    </div>
+  </section>
+</header>
 
-        <div class="featured-inner">
-          <div class="featured-visual">
-            <div class="phone-mockup-group">
-              <div class="phone-mockup primary">
-                <div class="phone-screen">
-                  <div class="phone-header-bar">
-                    <div class="dot"></div>
-                    <span>Safe Lanka</span>
-                  </div>
+<main>
+  <section id="about" class="about">
+    <div class="about-image">
+      <img src="images/Me.jpg" alt="Steffani Silva">
+    </div>
 
-                  <div class="phone-content">
-                    <div class="phone-sos-btn">
-                      <i class="fas fa-exclamation"></i>
-                    </div>
-
-                    <div class="phone-menu-item">
-                      <i class="fas fa-file-alt"></i>
-                      <span>Crime Reporting</span>
-                    </div>
-
-                    <div class="phone-menu-item">
-                      <i class="fas fa-location-dot"></i>
-                      <span>SOS Alerts</span>
-                    </div>
-
-                    <div class="phone-menu-item">
-                      <i class="fas fa-receipt"></i>
-                      <span>Fine Management</span>
-                    </div>
-
-                    <div class="phone-stat-row">
-                      <div class="phone-stat">
-                        <div class="num">24/7</div>
-                        <span class="lbl">Support</span>
-                      </div>
-                      <div class="phone-stat">
-                        <div class="num">3</div>
-                        <span class="lbl">Core</span>
-                      </div>
-                      <div class="phone-stat">
-                        <div class="num">API</div>
-                        <span class="lbl">Linked</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="phone-mockup secondary">
-                <div class="phone-screen">
-                  <div class="phone-header-bar">
-                    <div class="dot"></div>
-                    <span>Modules</span>
-                  </div>
-
-                  <div class="phone-content">
-                    <div class="phone-menu-item">
-                      <i class="fas fa-shield-alt"></i>
-                      <span>Safety Tips</span>
-                    </div>
-
-                    <div class="phone-menu-item">
-                      <i class="fas fa-car"></i>
-                      <span>Traffic Updates</span>
-                    </div>
-
-                    <div class="phone-menu-item">
-                      <i class="fas fa-robot"></i>
-                      <span>AI Chatbot</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="featured-content">
-            <div class="project-type-tag">Mobile Application</div>
-            <h3>Safe <span>Lanka</span></h3>
-            <p class="featured-description">
-              A cross-platform mobile application designed to improve communication between
-              citizens and authorities with SOS support, complaint tracking, traffic updates,
-              and user-focused features.
-            </p>
-
-            <div class="tech-stack">
-              <span class="tech-pill highlight">Flutter</span>
-              <span class="tech-pill highlight">Nest JS</span>
-              <span class="tech-pill highlight">MySQL</span>
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Mobile UI</span>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="btn-primary">
-                <i class="fab fa-github"></i> View GitHub
-              </a>
-              <a href="#contact" class="btn-outline">
-                <i class="fas fa-paper-plane"></i> Contact Me
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="secondary-projects">
-        <article class="project-card">
-          <div class="card-visual tictactoe-visual">
-            <i class="fas fa-gamepad simple-visual-icon"></i>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-tag">Web Application</span>
-              <span class="card-date">JavaScript</span>
-            </div>
-            <h3 class="card-title">Tic-Tac-Toe Game</h3>
-            <p class="card-desc">
-              An interactive browser-based game with dynamic logic, responsive layout,
-              and clean front-end implementation.
-            </p>
-            <div class="card-tech">
-              <span class="card-tech-pill">HTML</span>
-              <span class="card-tech-pill">CSS</span>
-              <span class="card-tech-pill">JavaScript</span>
-            </div>
-            <div class="card-footer">
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
-                View Project <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="card-visual portfolio-visual">
-            <i class="fas fa-laptop simple-visual-icon"></i>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-tag">Portfolio Website</span>
-              <span class="card-date">Frontend</span>
-            </div>
-            <h3 class="card-title">Personal Portfolio</h3>
-            <p class="card-desc">
-              A personal website created to showcase skills, projects, and experience with
-              a modern and engaging interface.
-            </p>
-            <div class="card-tech">
-              <span class="card-tech-pill">HTML</span>
-              <span class="card-tech-pill">CSS</span>
-              <span class="card-tech-pill">JavaScript</span>
-            </div>
-            <div class="card-footer">
-              <a href="#home" class="card-link">
-                View Project <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="card-visual traffic-visual">
-            <i class="fas fa-chart-line simple-visual-icon"></i>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-tag">Data Analysis</span>
-              <span class="card-date">Python</span>
-            </div>
-            <h3 class="card-title">Traffic Analysis</h3>
-            <p class="card-desc">
-              A Python-based project focused on analyzing data patterns, trends,
-              and visual insights for smarter decisions.
-            </p>
-            <div class="card-tech">
-              <span class="card-tech-pill">Python</span>
-              <span class="card-tech-pill">Analysis</span>
-              <span class="card-tech-pill">Visualization</span>
-            </div>
-            <div class="card-footer">
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
-                View Project <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="experience">
-      <h2 class="section-title">Experience & Education</h2>
-      <p class="section-subtitle">
-        A quick overview of my academic background and project journey.
+    <div class="about-content">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I'm a passionate Computer Science undergraduate who enjoys creating clean,
+        functional, and visually appealing digital experiences. I love bringing ideas
+        to life through code and building solutions that feel simple and effective.
       </p>
-
-      <div class="timeline-wrapper">
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">2024 - Present</span>
-            <h3>BSc (Hons) in Computer Science</h3>
-            <h4>IIT / University of Westminster</h4>
-            <p>Currently pursuing my undergraduate degree while building practical development skills.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">2023</span>
-            <h3>Foundation Certification in Higher Education</h3>
-            <h4>IIT</h4>
-            <p>Completed my foundation program and strengthened my academic preparation for computing.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">2023</span>
-            <h3>GCE Advanced Level</h3>
-            <h4>Ave Maria Convent, Negombo</h4>
-            <p>Completed advanced level education while growing my interest in software and web development.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">Project Experience</span>
-            <h3>Safe Lanka App</h3>
-            <h4>Mobile App Development</h4>
-            <p>Worked on user-facing features, system flow, project collaboration, and testing.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-   
-
-    <section id="contact" class="contact">
-      <h2 class="section-title">Contact Me</h2>
-      <p class="section-subtitle">
-        You can reach me directly through the contact details below.
+      <p>
+        With a strong interest in web development, software design, and problem solving,
+        I focus on writing clean code and crafting intuitive user interfaces. I'm always
+        eager to learn new technologies and improve my skills through real projects.
       </p>
+      <p>
+        My goal is to contribute my creativity, technical skills, and enthusiasm to
+        building impactful digital products while continuing to grow as a developer.
+      </p>
+    </div>
+  </section>
 
-      <div class="contact-wrap single-contact">
-        <div class="contact-info">
-          <h3>Let’s Connect</h3>
-          <p>
-            I’m open to internships, freelance opportunities, collaborations, and project discussions.
-          </p>
+  <section id="expertise" class="expertise">
+    <h2 class="section-title">My Expertise</h2>
+    <p class="section-subtitle">
+      A blend of frontend development, programming, app development, and collaborative problem solving.
+    </p>
 
-          <div class="contact-list">
-            <div class="contact-list-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <strong>Email</strong>
-                <a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="contact-list-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <strong>Phone</strong>
-                <span>+94 74 014 8998</span>
-              </div>
-            </div>
-
-            <div class="contact-list-item">
-              <i class="fas fa-location-dot"></i>
-              <div>
-                <strong>Location</strong>
-                <span>Negombo, Sri Lanka</span>
-              </div>
-            </div>
-
-            <div class="contact-list-item">
-              <i class="fab fa-linkedin"></i>
-              <div>
-                <strong>LinkedIn</strong>
-                <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank">
-                  linkedin.com/in/steffani-silva-
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-list-item">
-              <i class="fab fa-github"></i>
-              <div>
-                <strong>GitHub</strong>
-                <a href="https://github.com/SteffaniSilva" target="_blank">
-                  github.com/SteffaniSilva
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About</h3>
-          <p>
-            A personal portfolio focused on clean code, thoughtful design, and effective digital experiences.
-          </p>
-        </div>
-
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span><a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a></span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+94 74 014 8998</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Negombo, Sri Lanka</span>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h3>Connect</h3>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/SteffaniSilva" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" class="hero-social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <i class="fas fa-code"></i>
+        <h3>Programming</h3>
+        <p>Python, Java, and JavaScript for clean and maintainable software solutions.</p>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2025 Steffani Silva. All Rights Reserved.</p>
+      <div class="expertise-item">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript, and responsive interfaces built with a user-first approach.</p>
+      </div>
+
+      <div class="expertise-item">
+        <i class="fas fa-mobile-screen"></i>
+        <h3>App Development</h3>
+        <p>Flutter and backend integration for practical and scalable mobile applications.</p>
+      </div>
+
+      <div class="expertise-item">
+        <i class="fas fa-database"></i>
+        <h3>Data & Databases</h3>
+        <p>SQL, MongoDB, and data analysis techniques for insight-driven development.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <a href="#home" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </a>
+  <section id="portfolio" class="portfolio">
+    <div class="portfolio-header">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        Selected academic and software development projects from my CV, including mobile, web, API, and Python-based applications.
+      </p>
+    </div>
 
-  <script>
-    const navLinks = document.querySelectorAll("nav ul li a");
-    const sections = document.querySelectorAll("section[id]");
+    <div class="featured-project">
+      <div class="featured-inner">
+        <div class="featured-visual">
+          <div class="phone-mockup-group">
+            <div class="phone-mockup primary">
+              <div class="phone-screen">
+                <div class="phone-header-bar">
+                  <div class="dot"></div>
+                  <span>Safe Lanka</span>
+                </div>
 
-    window.addEventListener("scroll", () => {
-      let current = "";
+                <div class="phone-content">
+                  <div class="phone-sos-btn">
+                    <i class="fas fa-exclamation"></i>
+                  </div>
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
-        }
-      });
+                  <div class="phone-menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Crime Reporting</span>
+                  </div>
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
+                  <div class="phone-menu-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>SOS Alerts</span>
+                  </div>
+
+                  <div class="phone-menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>Fine Management</span>
+                  </div>
+
+                  <div class="phone-stat-row">
+                    <div class="phone-stat">
+                      <div class="num">24/7</div>
+                      <span class="lbl">Support</span>
+                    </div>
+                    <div class="phone-stat">
+                      <div class="num">SOS</div>
+                      <span class="lbl">Alerts</span>
+                    </div>
+                    <div class="phone-stat">
+                      <div class="num">API</div>
+                      <span class="lbl">Linked</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="phone-mockup secondary">
+              <div class="phone-screen">
+                <div class="phone-header-bar">
+                  <div class="dot"></div>
+                  <span>Modules</span>
+                </div>
+
+                <div class="phone-content">
+                  <div class="phone-menu-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Safety Tips</span>
+                  </div>
+
+                  <div class="phone-menu-item">
+                    <i class="fas fa-car"></i>
+                    <span>Traffic Updates</span>
+                  </div>
+
+                  <div class="phone-menu-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Chatbot</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-content">
+          <div class="project-type-tag">Mobile Application</div>
+          <h3>Safe <span>Lanka Police App</span></h3>
+          <p class="featured-description">
+            A cross-platform mobile application built to improve communication between citizens and law enforcement authorities through emergency, reporting, and public safety services.
+          </p>
+
+          <div class="tech-stack">
+            <span class="tech-pill highlight">Flutter</span>
+            <span class="tech-pill highlight">Nest JS</span>
+            <span class="tech-pill highlight">MySQL</span>
+            <span class="tech-pill">Mobile UI</span>
+            <span class="tech-pill">API Integration</span>
+          </div>
+
+          <p class="featured-description">
+            Implemented SOS emergency alerts, crime reporting, complaint tracking, fines management, lost and found, traffic updates, safety tips, and AI chatbot support. Supported frontend and backend integration, feature testing, and system validation.
+          </p>
+
+          <div class="project-actions">
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="btn-primary">
+              <i class="fab fa-github"></i> View GitHub
+            </a>
+            <a href="#contact" class="btn-outline">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondary-projects">
+      <article class="project-card">
+        <div class="card-visual opulenza-visual">
+          <i class="fas fa-building simple-visual-icon"></i>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">Responsive Web Application</span>
+            <span class="card-date">React</span>
+          </div>
+          <h3 class="card-title">OPULENZA Estate Agent Web Application</h3>
+          <p class="card-desc">
+            A responsive estate agent web application that allows users to search, browse, and view property listings using client-side React functionality.
+          </p>
+          <div class="card-tech">
+            <span class="card-tech-pill">React</span>
+            <span class="card-tech-pill">Vite</span>
+            <span class="card-tech-pill">JavaScript</span>
+            <span class="card-tech-pill">React Router</span>
+            <span class="card-tech-pill">Jest</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-visual api-visual">
+          <i class="fas fa-network-wired simple-visual-icon"></i>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">RESTful API</span>
+            <span class="card-date">Java</span>
+          </div>
+          <h3 class="card-title">SmartCampusAPI</h3>
+          <p class="card-desc">
+            A RESTful Smart Campus management API developed to manage rooms, sensors, and sensor reading data for a university campus environment.
+          </p>
+          <div class="card-tech">
+            <span class="card-tech-pill">Java</span>
+            <span class="card-tech-pill">JAX-RS</span>
+            <span class="card-tech-pill">Jersey</span>
+            <span class="card-tech-pill">Maven</span>
+            <span class="card-tech-pill">Tomcat</span>
+            <span class="card-tech-pill">Postman</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-visual todo-visual">
+          <i class="fas fa-list-check simple-visual-icon"></i>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">Command-Line Application</span>
+            <span class="card-date">Python</span>
+          </div>
+          <h3 class="card-title">Advanced Python To-do List App</h3>
+          <p class="card-desc">
+            An advanced command-line task management application using Python and SQLite for persistent local task storage.
+          </p>
+          <div class="card-tech">
+            <span class="card-tech-pill">Python</span>
+            <span class="card-tech-pill">SQLite</span>
+            <span class="card-tech-pill">CSV</span>
+            <span class="card-tech-pill">CRUD</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-link">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/SteffaniSilva" target="_blank" class="card-icon-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <h2 class="section-title">Experience & Education</h2>
+    <p class="section-subtitle">
+      A quick overview of my academic background and project journey.
+    </p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-item left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2024 - Present</span>
+          <h3>BSc (Hons) in Computer Science</h3>
+          <h4>IIT / University of Westminster</h4>
+          <p>Currently pursuing my undergraduate degree while building practical development skills.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2023</span>
+          <h3>Foundation Certification in Higher Education</h3>
+          <h4>IIT</h4>
+          <p>Completed my foundation program and strengthened my academic preparation for computing.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">2023</span>
+          <h3>GCE Advanced Level</h3>
+          <h4>Ave Maria Convent, Negombo</h4>
+          <p>Completed advanced level education while growing my interest in software and web development.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-year">Project Experience</span>
+          <h3>Safe Lanka App</h3>
+          <h4>Mobile App Development</h4>
+          <p>Worked on user-facing features, system flow, project collaboration, and testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="section-subtitle">
+      You can reach me directly through the contact details below.
+    </p>
+
+    <div class="contact-wrap single-contact">
+      <div class="contact-info">
+        <h3>Let’s Connect</h3>
+        <p>
+          I’m open to internships, freelance opportunities, collaborations, and project discussions.
+        </p>
+
+        <div class="contact-list">
+          <div class="contact-list-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-list-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Phone</strong>
+              <span>+94 74 014 8998</span>
+            </div>
+          </div>
+
+          <div class="contact-list-item">
+            <i class="fas fa-location-dot"></i>
+            <div>
+              <strong>Location</strong>
+              <span>Negombo, Sri Lanka</span>
+            </div>
+          </div>
+
+          <div class="contact-list-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank">
+                linkedin.com/in/steffani-silva-
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-list-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com/SteffaniSilva" target="_blank">
+                github.com/SteffaniSilva
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p>
+          A personal portfolio focused on clean code, thoughtful design, and effective digital experiences.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span><a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+94 74 014 8998</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Negombo, Sri Lanka</span>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SteffaniSilva" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" class="hero-social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Steffani Silva. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#home" class="back-to-top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script>
+  const navLinks = document.querySelectorAll("nav ul li a");
+  const sections = document.querySelectorAll("section[id]");
+
+  window.addEventListener("scroll", () => {
+let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+current = section.getAttribute("id");
+      }
+              });
+
+              navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+      }
+              });
+              });
+</script>
 </body>
 </html>

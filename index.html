@@ -812,7 +812,7 @@
     .skill-lab {
       margin-top: 40px;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -821,7 +821,7 @@
       padding: 22px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.11);
-      min-height: 300px;
+      min-height: 265px;
     }
 
     .skill-column h3 {
@@ -1391,6 +1391,24 @@
       color: #3a3d4f;
     }
 
+
+    /* Better section label contrast in light theme */
+    body.light-mode .eyebrow {
+      color: #7c2dff;
+      background: rgba(124, 45, 255, 0.10);
+      border: 1px solid rgba(124, 45, 255, 0.18);
+      padding: 7px 12px;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 10px 26px rgba(124, 45, 255, 0.10);
+    }
+
+    body.light-mode .eyebrow::before {
+      background: #7c2dff;
+      height: 2px;
+      opacity: 1;
+    }
+
     body.light-mode .topbar,
     body.light-mode .glass,
     body.light-mode .project-tile,
@@ -1827,19 +1845,19 @@
       <div class="page-shell">
         <div class="reveal">
           <span class="eyebrow">Skill lab</span>
-          <h2 class="section-heading">My toolkit is growing with every project.</h2>
+          <h2 class="section-heading">Skills from my CV, shaped into a clear toolkit.</h2>
           <p class="section-copy">
-            These are the technologies and development areas I currently use in academic projects, portfolio work, and self-learning.
+            This section brings together the programming languages, web technologies, frameworks, databases, tools, development strengths, and soft skills listed in my CV and demonstrated through my projects.
           </p>
         </div>
 
         <div class="skill-lab">
           <div class="skill-column reveal">
-            <h3><i class="fa-solid fa-code"></i> Languages</h3>
+            <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
             <div class="skill-tags">
-              <span>JavaScript</span>
               <span>Python</span>
               <span>Java</span>
+              <span>JavaScript</span>
               <span>SQL</span>
               <span>HTML5</span>
               <span>CSS3</span>
@@ -1847,45 +1865,73 @@
           </div>
 
           <div class="skill-column reveal">
-            <h3><i class="fa-solid fa-laptop-code"></i> Frontend</h3>
+            <h3><i class="fa-solid fa-display"></i> Web & Frontend</h3>
             <div class="skill-tags">
               <span>React.js</span>
               <span>Vite</span>
               <span>React Router</span>
-              <span>Responsive UI</span>
+              <span>Responsive CSS</span>
               <span>Reusable Components</span>
-              <span>Jest</span>
+              <span>Web Design</span>
+              <span>Client-side JSON</span>
             </div>
           </div>
 
           <div class="skill-column reveal">
-            <h3><i class="fa-solid fa-server"></i> Backend & Data</h3>
+            <h3><i class="fa-solid fa-mobile-screen-button"></i> Frameworks & Mobile</h3>
             <div class="skill-tags">
+              <span>Flutter</span>
               <span>NestJS</span>
+              <span>Mobile UI</span>
+              <span>Cross-platform Apps</span>
+              <span>Frontend + Backend Integration</span>
+            </div>
+          </div>
+
+          <div class="skill-column reveal">
+            <h3><i class="fa-solid fa-database"></i> Backend, APIs & Data</h3>
+            <div class="skill-tags">
               <span>REST APIs</span>
               <span>JAX-RS</span>
               <span>Jersey</span>
               <span>MySQL</span>
               <span>SQLite</span>
-              <span>Postman</span>
+              <span>CRUD Operations</span>
+              <span>API Integration</span>
             </div>
           </div>
 
           <div class="skill-column reveal">
-            <h3><i class="fa-solid fa-users-gear"></i> Professional</h3>
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Testing</h3>
             <div class="skill-tags">
+              <span>Postman</span>
+              <span>Maven</span>
+              <span>Apache Tomcat</span>
+              <span>Jest</span>
+              <span>CSV Handling</span>
+              <span>Feature Testing</span>
+              <span>Debugging</span>
+              <span>System Validation</span>
+            </div>
+          </div>
+
+          <div class="skill-column reveal">
+            <h3><i class="fa-solid fa-users-gear"></i> Professional Skills</h3>
+            <div class="skill-tags">
+              <span>Software Development</span>
               <span>Problem Solving</span>
-              <span>Teamwork</span>
               <span>Communication</span>
+              <span>Teamwork</span>
               <span>Adaptability</span>
               <span>User-centered Design</span>
               <span>Attention to Detail</span>
+              <span>Ownership</span>
             </div>
           </div>
         </div>
 
         <div class="tool-note reveal">
-          <strong>Current focus:</strong> strengthening React, React Native concepts, API integration, testing, debugging, and AI-assisted development workflows for internship-ready software engineering work.
+          <strong>CV-aligned focus:</strong> strengthening React.js, Flutter, NestJS, REST API integration, testing/debugging, database-backed applications, and user-centered software development for internship-ready work.
         </div>
       </div>
     </section>

@@ -1251,7 +1251,8 @@
       border: 1px solid rgba(255,255,255,0.095);
     }
 
-    .contact-item i {
+    .contact-item i,
+    .contact-item .contact-symbol {
       width: 46px;
       height: 46px;
       border-radius: 16px;
@@ -1259,6 +1260,15 @@
       place-items: center;
       background: rgba(108,245,255,0.1);
       color: var(--accent-2);
+    }
+
+
+
+    .contact-item .contact-symbol {
+      font-weight: 800;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      line-height: 1;
+      font-size: 0.95rem;
     }
 
     .contact-item strong {
@@ -1529,16 +1539,19 @@
     }
 
 
-    /* Light theme purple refinement: change all visible blue/cyan accents into purple only in white theme */
+
+    /* Final light-theme purple pass: all visible blue/cyan accents become purple in white theme only */
     body.light-mode {
       --accent-2: #7c2dff;
       --light-purple: #7c2dff;
       --light-purple-dark: #4c1d95;
+      --light-purple-mid: #8a5cff;
       --light-purple-soft: rgba(124, 45, 255, 0.11);
+      --light-purple-softer: rgba(124, 45, 255, 0.07);
       --light-purple-line: rgba(124, 45, 255, 0.24);
       background:
         radial-gradient(circle at 18% 18%, rgba(255, 92, 168, 0.20), transparent 28%),
-        radial-gradient(circle at 88% 4%, rgba(124, 45, 255, 0.16), transparent 25%),
+        radial-gradient(circle at 88% 4%, rgba(124, 45, 255, 0.18), transparent 25%),
         linear-gradient(135deg, #fff8fb 0%, #f7f0ff 50%, #fff9ea 100%);
     }
 
@@ -1549,7 +1562,7 @@
     body.light-mode .splash {
       background:
         radial-gradient(circle at 18% 16%, rgba(255, 92, 168, 0.25), transparent 30rem),
-        radial-gradient(circle at 86% 18%, rgba(124, 45, 255, 0.20), transparent 32rem),
+        radial-gradient(circle at 86% 18%, rgba(124, 45, 255, 0.22), transparent 32rem),
         radial-gradient(circle at 58% 86%, rgba(124, 45, 255, 0.10), transparent 26rem),
         linear-gradient(135deg, #fff8fd 0%, #f7f0ff 52%, #fffbea 100%);
     }
@@ -1558,18 +1571,58 @@
       background: linear-gradient(120deg, transparent, rgba(255, 92, 168, 0.10), rgba(124, 45, 255, 0.14), transparent);
     }
 
+    body.light-mode .splash-logo,
+    body.light-mode .brand-mark {
+      background: linear-gradient(135deg, #ff5ca8, #8a5cff 56%, #7c2dff);
+      box-shadow: 0 18px 42px rgba(124, 45, 255, 0.22);
+    }
+
     body.light-mode .splash-status,
     body.light-mode .console-tag,
     body.light-mode .project-kicker,
     body.light-mode .journey-year,
     body.light-mode .todo-title span,
-    body.light-mode .code-strip {
+    body.light-mode .code-strip,
+    body.light-mode .eyebrow,
+    body.light-mode .tool-note strong {
       color: var(--light-purple);
     }
 
-    body.light-mode .mini-btn:hover {
-      border-color: rgba(124, 45, 255, 0.35);
+    body.light-mode .eyebrow {
+      background: var(--light-purple-soft);
+      border-color: rgba(124, 45, 255, 0.20);
+      box-shadow: 0 10px 26px rgba(124, 45, 255, 0.11);
+    }
+
+    body.light-mode .eyebrow::before {
+      background: var(--light-purple);
+    }
+
+    body.light-mode .progress-bar,
+    body.light-mode .primary-btn {
+      background: linear-gradient(135deg, #ff5ca8, #8a5cff 58%, #7c2dff);
+    }
+
+    body.light-mode .primary-btn {
+      box-shadow: 0 20px 48px rgba(124, 45, 255, 0.20);
+    }
+
+    body.light-mode .mini-btn:hover,
+    body.light-mode .ghost-btn:hover {
+      border-color: rgba(124, 45, 255, 0.34);
       background: rgba(124, 45, 255, 0.08);
+    }
+
+    body.light-mode .nav-links a:hover,
+    body.light-mode .nav-links a.active {
+      color: var(--light-purple-dark);
+      background: rgba(124, 45, 255, 0.10);
+    }
+
+    body.light-mode .nav-links a:hover i,
+    body.light-mode .nav-links a.active i,
+    body.light-mode .mini-btn:hover i {
+      color: var(--light-purple);
     }
 
     body.light-mode .hero h1 .outline {
@@ -1577,14 +1630,19 @@
     }
 
     body.light-mode .gradient-word {
-      background: linear-gradient(90deg, var(--accent), var(--light-purple));
+      background: linear-gradient(90deg, #ff5ca8, var(--light-purple));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
+    body.light-mode .portrait-wrap {
+      background: linear-gradient(135deg, #ff5ca8, #8a5cff 55%, #c084fc);
+      box-shadow: 0 22px 58px rgba(124, 45, 255, 0.15);
+    }
+
     body.light-mode .orbit-chip {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 240, 255, 0.96));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(247, 240, 255, 0.98));
       color: var(--light-purple-dark);
       border-color: var(--light-purple-line);
       box-shadow: 0 14px 34px rgba(124, 45, 255, 0.16);
@@ -1595,26 +1653,27 @@
     body.light-mode .skill-column h3 i,
     body.light-mode .app-row i,
     body.light-mode .contact-item i,
-    body.light-mode .footer-socials a:hover,
-    body.light-mode .back-top:hover {
+    body.light-mode .footer-socials a,
+    body.light-mode .back-top,
+    body.light-mode .method {
       color: var(--light-purple);
     }
 
     body.light-mode .focus-item i,
     body.light-mode .contact-item i {
       background: var(--light-purple-soft);
-      color: var(--light-purple);
+      border: 1px solid rgba(124, 45, 255, 0.10);
     }
 
     body.light-mode .tool-note {
       border-color: rgba(124, 45, 255, 0.28);
-      background: rgba(124, 45, 255, 0.07);
+      background: var(--light-purple-softer);
     }
 
     body.light-mode .project-art {
       background:
-        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.16), transparent 34%),
-        linear-gradient(135deg, rgba(255,92,168,0.16), rgba(124,45,255,0.14));
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.18), transparent 34%),
+        linear-gradient(135deg, rgba(255,92,168,0.16), rgba(124,45,255,0.15));
     }
 
     body.light-mode .property-search {
@@ -1622,10 +1681,33 @@
       border-color: rgba(124, 45, 255, 0.20);
     }
 
+    body.light-mode .browser-ui,
+    body.light-mode .api-ui,
+    body.light-mode .todo-ui {
+      box-shadow: 0 28px 70px rgba(124, 45, 255, 0.18);
+    }
+
+    body.light-mode .project-points i,
+    body.light-mode .todo-check,
+    body.light-mode .availability .pulse {
+      color: var(--light-purple);
+      border-color: var(--light-purple);
+    }
+
+    body.light-mode .availability {
+      background: rgba(124, 45, 255, 0.08);
+      border-color: rgba(124, 45, 255, 0.22);
+    }
+
+    body.light-mode .availability .pulse {
+      background: var(--light-purple);
+      box-shadow: 0 0 0 0 rgba(124, 45, 255, 0.60);
+    }
+
     body.light-mode footer {
       background:
         radial-gradient(circle at 16% 0%, rgba(255,92,168,0.18), transparent 25rem),
-        radial-gradient(circle at 88% 42%, rgba(124,45,255,0.16), transparent 27rem),
+        radial-gradient(circle at 88% 42%, rgba(124,45,255,0.17), transparent 27rem),
         radial-gradient(circle at 58% 100%, rgba(124,45,255,0.08), transparent 24rem),
         linear-gradient(135deg, #fff9fd 0%, #f7f0ff 54%, #fffbee 100%);
     }
@@ -1634,10 +1716,16 @@
       background: linear-gradient(90deg, transparent, #ff5ca8, var(--light-purple), #b66dff, transparent);
     }
 
+    body.light-mode .footer-socials a {
+      background: rgba(124,45,255,0.08);
+      border-color: rgba(124,45,255,0.16);
+      box-shadow: 0 16px 34px rgba(124,45,255,0.10);
+    }
+
     body.light-mode .footer-socials a:hover,
     body.light-mode .back-top:hover {
       color: #ffffff;
-      background: linear-gradient(135deg, var(--accent), #8a5cff 55%, var(--light-purple));
+      background: linear-gradient(135deg, #ff5ca8, #8a5cff 55%, #7c2dff);
       border-color: transparent;
     }
 
@@ -1663,6 +1751,114 @@
     body:not(.light-mode) .topbar {
       background: rgba(4, 6, 18, 0.78);
       border-color: rgba(255,255,255,0.18);
+    }
+
+
+
+    /* Mobile icon visibility fix: make contact and footer icons clear in light mode */
+    body.light-mode .contact-item i,
+    body.light-mode .contact-item .contact-symbol {
+      color: #111221;
+      background: linear-gradient(135deg, rgba(255,92,168,0.16), rgba(108,245,255,0.22));
+      border: 1px solid rgba(17,18,33,0.12);
+      box-shadow: 0 12px 26px rgba(35,35,55,0.10);
+      font-size: 1rem;
+      opacity: 1;
+    }
+
+    .footer-socials a svg,
+    .back-top svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+      stroke: none;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .footer-socials a i,
+    .back-top i {
+      font-size: 18px;
+      line-height: 1;
+      color: currentColor;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 680px) {
+      .footer-socials {
+        gap: 14px;
+      }
+
+      .footer-socials a {
+        width: 48px;
+        height: 48px;
+        color: #111221 !important;
+        background: rgba(255,255,255,0.92) !important;
+        border: 1px solid rgba(17,18,33,0.18) !important;
+        box-shadow: 0 14px 30px rgba(35,35,55,0.16) !important;
+      }
+
+      .footer-socials a svg,
+      .back-top svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .back-top {
+        width: 54px;
+        height: 54px;
+        color: #111221 !important;
+        background: rgba(255,255,255,0.94) !important;
+        border: 1px solid rgba(17,18,33,0.18) !important;
+        box-shadow: 0 16px 34px rgba(35,35,55,0.18) !important;
+      }
+    }
+
+
+
+    /* Final override after mobile icon fix: keep light theme purple on laptop and mobile */
+    body.light-mode .contact-item i,
+    body.light-mode .contact-item .contact-symbol {
+      color: var(--light-purple) !important;
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(245,237,255,0.98)) !important;
+      border: 1px solid rgba(124,45,255,0.20) !important;
+      box-shadow: 0 12px 26px rgba(124,45,255,0.12) !important;
+    }
+
+    body.light-mode .footer-socials a,
+    body.light-mode .back-top {
+      color: var(--light-purple) !important;
+      background: rgba(124,45,255,0.08) !important;
+      border-color: rgba(124,45,255,0.18) !important;
+      box-shadow: 0 16px 34px rgba(124,45,255,0.10) !important;
+    }
+
+    body.light-mode .footer-socials a:hover,
+    body.light-mode .back-top:hover {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #ff5ca8, #8a5cff 55%, #7c2dff) !important;
+      border-color: transparent !important;
+    }
+
+    @keyframes pulsePurple {
+      70% { box-shadow: 0 0 0 12px rgba(124, 45, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(124, 45, 255, 0); }
+    }
+
+    body.light-mode .availability .pulse {
+      animation-name: pulsePurple;
+    }
+
+    @media (max-width: 680px) {
+      body.light-mode .footer-socials a,
+      body.light-mode .back-top {
+        color: var(--light-purple) !important;
+        background: rgba(255,255,255,0.94) !important;
+        border-color: rgba(124,45,255,0.22) !important;
+        box-shadow: 0 14px 30px rgba(124,45,255,0.13) !important;
+      }
     }
 
     /* Responsive */
@@ -2261,42 +2457,42 @@
 
           <div class="contact-list">
             <div class="contact-item">
-              <i class="fa-solid fa-envelope"></i>
+              <span class="contact-symbol" aria-hidden="true">@</span>
               <div>
                 <strong>Email</strong>
                 <a href="mailto:silvasteffani2004@gmail.com">silvasteffani2004@gmail.com</a>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fa-solid fa-phone"></i>
+              <span class="contact-symbol" aria-hidden="true">☎</span>
               <div>
                 <strong>Phone</strong>
                 <span>+94 74 014 8998</span>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fa-solid fa-location-dot"></i>
+              <span class="contact-symbol" aria-hidden="true">⌖</span>
               <div>
                 <strong>Location</strong>
                 <span>Negombo, Sri Lanka</span>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fa-brands fa-linkedin"></i>
+              <span class="contact-symbol" aria-hidden="true">in</span>
               <div>
                 <strong>LinkedIn</strong>
                 <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" rel="noopener">linkedin.com/in/steffani-silva-</a>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fa-brands fa-github"></i>
+              <span class="contact-symbol" aria-hidden="true">GH</span>
               <div>
                 <strong>GitHub</strong>
                 <a href="https://github.com/SteffaniSilva" target="_blank" rel="noopener">github.com/SteffaniSilva</a>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fa-solid fa-globe"></i>
+              <span class="contact-symbol" aria-hidden="true">🌐</span>
               <div>
                 <strong>Portfolio</strong>
                 <a href="https://portfolio-4pny.vercel.app/" target="_blank" rel="noopener">portfolio-4pny.vercel.app</a>
@@ -2312,15 +2508,23 @@
     <div class="page-shell footer-row">
       <p>© 2026 Steffani Silva. Designed as a unique software engineering portfolio.</p>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com/SteffaniSilva" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="mailto:silvasteffani2004@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/steffani-silva-" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.38 8h4.24v15H.38V8zM8.16 8h4.06v2.05h.06c.56-1.06 1.94-2.18 3.99-2.18 4.27 0 5.06 2.81 5.06 6.47V23h-4.24v-7.66c0-1.83-.03-4.18-2.55-4.18-2.55 0-2.94 1.99-2.94 4.05V23H8.16V8z" transform="translate(1 0) scale(.95)"/></svg>
+        </a>
+        <a href="https://github.com/SteffaniSilva" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.74.11 3.03.73.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.04.77 2.1v3.12c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="mailto:silvasteffani2004@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm9 8.1L3.4 7.4A1 1 0 0 0 3 8.2V17h18V8.2a1 1 0 0 0-.4-.8L12 13.1zm0-2.4L19.6 7H4.4L12 10.7z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/_steffani_silva_/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.25A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25zm0 2A2.75 2.75 0 1 0 14.75 12 2.75 2.75 0 0 0 12 9.25zm5.2-2.35a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1z"/></svg>
+        </a>
       </div>
     </div>
   </footer>
 
-  <a href="#home" class="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+  <a href="#home" class="back-top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20V7.83l-5.59 5.58L4 12l8-8 8 8-1.41 1.41L13 7.83V20h-2z"/></svg></a>
 
   <script>
     const splash = document.getElementById("splash");

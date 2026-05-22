@@ -909,7 +909,8 @@
     .phone-ui,
     .browser-ui,
     .api-ui,
-    .todo-ui {
+    .todo-ui,
+    .luxe-ui {
       position: relative;
       z-index: 2;
       box-shadow: 0 28px 70px rgba(0,0,0,0.42);
@@ -1024,6 +1025,71 @@
       height: 8px;
       border-radius: 99px;
       background: rgba(255,255,255,0.22);
+    }
+
+    .luxe-ui {
+      width: min(390px, 82%);
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #fff8fb, #f4e9ff);
+      border: 1px solid rgba(255,255,255,0.58);
+      transform: rotate(-3deg);
+      color: #2a1638;
+    }
+
+    .luxe-hero {
+      min-height: 250px;
+      padding: 28px;
+      display: grid;
+      align-content: end;
+      gap: 14px;
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255,92,168,0.25), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(138,92,255,0.22), transparent 32%),
+        linear-gradient(135deg, #fff7fb, #f0e5ff);
+    }
+
+    .luxe-label {
+      width: max-content;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(124,45,255,0.10);
+      color: #7c2dff;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .luxe-title {
+      font-size: 2.2rem;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 250px;
+    }
+
+    .luxe-line {
+      width: 88%;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff5ca8, #8a5cff, #7c2dff);
+      opacity: 0.82;
+    }
+
+    .luxe-cards {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: rgba(255,255,255,0.66);
+    }
+
+    .luxe-card-mini {
+      min-height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,92,168,0.16), rgba(124,45,255,0.12));
+      border: 1px solid rgba(124,45,255,0.12);
     }
 
     .api-ui {
@@ -1464,7 +1530,8 @@
     body.light-mode .phone-ui,
     body.light-mode .browser-ui,
     body.light-mode .api-ui,
-    body.light-mode .todo-ui {
+    body.light-mode .todo-ui,
+    body.light-mode .luxe-ui {
       color: rgba(255,255,255,0.9);
     }
 
@@ -1681,9 +1748,32 @@
       border-color: rgba(124, 45, 255, 0.20);
     }
 
+    body.light-mode .luxe-ui {
+      background: linear-gradient(135deg, #fff8fb, #f7f0ff);
+      border-color: rgba(124,45,255,0.16);
+    }
+
+    body.light-mode .luxe-hero {
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255,92,168,0.18), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(124,45,255,0.18), transparent 32%),
+        linear-gradient(135deg, #fff8fb, #f3eaff);
+    }
+
+    body.light-mode .luxe-label {
+      color: var(--light-purple);
+      background: rgba(124,45,255,0.10);
+      border: 1px solid rgba(124,45,255,0.16);
+    }
+
+    body.light-mode .luxe-line {
+      background: linear-gradient(90deg, #ff5ca8, #8a5cff, var(--light-purple));
+    }
+
     body.light-mode .browser-ui,
     body.light-mode .api-ui,
-    body.light-mode .todo-ui {
+    body.light-mode .todo-ui,
+    body.light-mode .luxe-ui {
       box-shadow: 0 28px 70px rgba(124, 45, 255, 0.18);
     }
 
@@ -2066,7 +2156,7 @@
           </div>
           <div class="hero-metrics" aria-label="Portfolio highlights">
             <div class="metric-card">
-              <strong>04+</strong>
+              <strong>05+</strong>
               <span>featured projects</span>
             </div>
             <div class="metric-card">
@@ -2192,6 +2282,7 @@
               <span>Reusable Components</span>
               <span>Web Design</span>
               <span>Client-side JSON</span>
+              <span>Bootstrap</span>
             </div>
           </div>
 
@@ -2216,6 +2307,8 @@
               <span>SQLite</span>
               <span>CRUD Operations</span>
               <span>API Integration</span>
+              <span>Flask</span>
+              <span>Jinja2</span>
             </div>
           </div>
 
@@ -2230,6 +2323,7 @@
               <span>Feature Testing</span>
               <span>Debugging</span>
               <span>System Validation</span>
+              <span>Vercel</span>
             </div>
           </div>
 
@@ -2249,7 +2343,7 @@
         </div>
 
         <div class="tool-note reveal">
-          <strong>CV-aligned focus:</strong> strengthening React.js, Flutter, NestJS, REST API integration, testing/debugging, database-backed applications, and user-centered software development for internship-ready work.
+          <strong>CV-aligned focus:</strong> strengthening React.js, Flutter, NestJS, Flask, REST API integration, testing/debugging, database-backed applications, responsive design, and user-centered software development for internship-ready work.
         </div>
       </div>
     </section>
@@ -2335,6 +2429,42 @@
 
           <article class="project-tile reveal">
             <div class="project-art">
+              <div class="luxe-ui" aria-hidden="true">
+                <div class="luxe-hero">
+                  <div class="luxe-label">Luxury Web</div>
+                  <div class="luxe-title">Ornella Luxe Website</div>
+                  <div class="luxe-line"></div>
+                </div>
+                <div class="luxe-cards">
+                  <div class="luxe-card-mini"></div>
+                  <div class="luxe-card-mini"></div>
+                  <div class="luxe-card-mini"></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-kicker">Luxury Responsive Website</div>
+              <h3>Ornella Luxe Website</h3>
+              <p>
+                An elegant, luxury-inspired responsive website designed with a soft feminine aesthetic, premium visual style, clean layout, and smooth user-friendly sections.
+              </p>
+              <div class="project-points">
+                <span><i class="fa-solid fa-check"></i> Designed a modern brand-style landing page with a polished hero section, stylish navigation, and luxury visual direction.</span>
+                <span><i class="fa-solid fa-check"></i> Built responsive desktop and mobile layouts using HTML5, CSS3, JavaScript, and Bootstrap.</span>
+                <span><i class="fa-solid fa-check"></i> Deployed the project with Vercel so recruiters can view the live website directly.</span>
+              </div>
+              <div class="stack">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span><span>Responsive Design</span><span>Vercel</span>
+              </div>
+              <div class="hero-actions">
+                <a class="primary-btn" href="https://ornella-luxe-website.vercel.app/" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i> View demo</a>
+                <a class="ghost-btn" href="https://github.com/SteffaniSilva/-ornella-luxe-website" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-tile reveal">
+            <div class="project-art">
               <div class="api-ui" aria-hidden="true">
                 <div class="api-line"><span class="method">GET</span><span>/rooms</span></div>
                 <div class="api-line"><span class="method">POST</span><span>/sensors</span></div>
@@ -2367,30 +2497,30 @@
           <article class="project-tile reveal">
             <div class="project-art">
               <div class="todo-ui" aria-hidden="true">
-                <div class="todo-title"><strong>Task Engine</strong><span>SQLite</span></div>
-                <div class="todo-item"><span class="todo-check"></span> Add task + priority</div>
-                <div class="todo-item"><span class="todo-check"></span> Track due dates</div>
-                <div class="todo-item"><span class="todo-check"></span> Search records</div>
-                <div class="todo-item"><span class="todo-check"></span> Export CSV</div>
+                <div class="todo-title"><strong>Ornella Planner</strong><span>Flask</span></div>
+                <div class="todo-item"><span class="todo-check"></span> Add daily tasks</div>
+                <div class="todo-item"><span class="todo-check"></span> Edit + complete tasks</div>
+                <div class="todo-item"><span class="todo-check"></span> Set priorities</div>
+                <div class="todo-item"><span class="todo-check"></span> Due dates + times</div>
               </div>
             </div>
             <div class="project-content">
-              <div class="project-kicker">Command-Line Application</div>
-              <h3>Advanced Python To-do List App</h3>
+              <div class="project-kicker">Web-based Daily Planner</div>
+              <h3>Ornella Planner</h3>
               <p>
-                A command-line productivity application built with Python and SQLite for local task management and persistent data storage.
+                An aesthetic web-based daily planner and to-do list application built with Flask, SQLite, HTML, CSS, and Bootstrap for calm daily task management.
               </p>
               <div class="project-points">
-                <span><i class="fa-solid fa-check"></i> Implemented CRUD functionality to add, view, update, complete, delete, and search tasks.</span>
-                <span><i class="fa-solid fa-check"></i> Added descriptions, priority levels, due dates, overdue tracking, and task statistics.</span>
-                <span><i class="fa-solid fa-check"></i> Structured database logic using a dedicated database management class.</span>
+                <span><i class="fa-solid fa-check"></i> Built task management features to add, edit, delete, complete, and view pending or completed tasks.</span>
+                <span><i class="fa-solid fa-check"></i> Added priority levels, due dates, due times, and SQLite-backed task storage.</span>
+                <span><i class="fa-solid fa-check"></i> Designed a responsive planner-inspired interface with soft feminine styling and clean structure.</span>
               </div>
               <div class="stack">
-                <span>Python</span><span>SQLite</span><span>CSV</span><span>CRUD</span><span>CLI</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Jinja2</span>
               </div>
               <div class="hero-actions">
-                <a class="primary-btn" href="https://github.com/SteffaniSilva" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a class="ghost-btn" href="images/STEFFANI SILVA.pdf" download="Steffani_Silva_CV.pdf"><i class="fa-solid fa-file-arrow-down"></i> CV</a>
+                <a class="primary-btn" href="https://ornella-planner-98cp.vercel.app/" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i> View demo</a>
+                <a class="ghost-btn" href="https://github.com/SteffaniSilva/ornella-planner" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
           </article>

@@ -1528,6 +1528,128 @@
       border-color: transparent;
     }
 
+
+    /* Light theme purple refinement: change all visible blue/cyan accents into purple only in white theme */
+    body.light-mode {
+      --accent-2: #7c2dff;
+      --light-purple: #7c2dff;
+      --light-purple-dark: #4c1d95;
+      --light-purple-soft: rgba(124, 45, 255, 0.11);
+      --light-purple-line: rgba(124, 45, 255, 0.24);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 92, 168, 0.20), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(124, 45, 255, 0.16), transparent 25%),
+        linear-gradient(135deg, #fff8fb 0%, #f7f0ff 50%, #fff9ea 100%);
+    }
+
+    body.light-mode::after {
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(124, 45, 255, 0.15), transparent 19rem);
+    }
+
+    body.light-mode .splash {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255, 92, 168, 0.25), transparent 30rem),
+        radial-gradient(circle at 86% 18%, rgba(124, 45, 255, 0.20), transparent 32rem),
+        radial-gradient(circle at 58% 86%, rgba(124, 45, 255, 0.10), transparent 26rem),
+        linear-gradient(135deg, #fff8fd 0%, #f7f0ff 52%, #fffbea 100%);
+    }
+
+    body.light-mode .splash-card::before {
+      background: linear-gradient(120deg, transparent, rgba(255, 92, 168, 0.10), rgba(124, 45, 255, 0.14), transparent);
+    }
+
+    body.light-mode .splash-status,
+    body.light-mode .console-tag,
+    body.light-mode .project-kicker,
+    body.light-mode .journey-year,
+    body.light-mode .todo-title span,
+    body.light-mode .code-strip {
+      color: var(--light-purple);
+    }
+
+    body.light-mode .mini-btn:hover {
+      border-color: rgba(124, 45, 255, 0.35);
+      background: rgba(124, 45, 255, 0.08);
+    }
+
+    body.light-mode .hero h1 .outline {
+      text-shadow: 0 0 24px rgba(124, 45, 255, 0.14);
+    }
+
+    body.light-mode .gradient-word {
+      background: linear-gradient(90deg, var(--accent), var(--light-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    body.light-mode .orbit-chip {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 240, 255, 0.96));
+      color: var(--light-purple-dark);
+      border-color: var(--light-purple-line);
+      box-shadow: 0 14px 34px rgba(124, 45, 255, 0.16);
+    }
+
+    body.light-mode .orbit-chip i,
+    body.light-mode .focus-item i,
+    body.light-mode .skill-column h3 i,
+    body.light-mode .app-row i,
+    body.light-mode .contact-item i,
+    body.light-mode .footer-socials a:hover,
+    body.light-mode .back-top:hover {
+      color: var(--light-purple);
+    }
+
+    body.light-mode .focus-item i,
+    body.light-mode .contact-item i {
+      background: var(--light-purple-soft);
+      color: var(--light-purple);
+    }
+
+    body.light-mode .tool-note {
+      border-color: rgba(124, 45, 255, 0.28);
+      background: rgba(124, 45, 255, 0.07);
+    }
+
+    body.light-mode .project-art {
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.16), transparent 34%),
+        linear-gradient(135deg, rgba(255,92,168,0.16), rgba(124,45,255,0.14));
+    }
+
+    body.light-mode .property-search {
+      background: rgba(124, 45, 255, 0.11);
+      border-color: rgba(124, 45, 255, 0.20);
+    }
+
+    body.light-mode footer {
+      background:
+        radial-gradient(circle at 16% 0%, rgba(255,92,168,0.18), transparent 25rem),
+        radial-gradient(circle at 88% 42%, rgba(124,45,255,0.16), transparent 27rem),
+        radial-gradient(circle at 58% 100%, rgba(124,45,255,0.08), transparent 24rem),
+        linear-gradient(135deg, #fff9fd 0%, #f7f0ff 54%, #fffbee 100%);
+    }
+
+    body.light-mode footer::before {
+      background: linear-gradient(90deg, transparent, #ff5ca8, var(--light-purple), #b66dff, transparent);
+    }
+
+    body.light-mode .footer-socials a:hover,
+    body.light-mode .back-top:hover {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), #8a5cff 55%, var(--light-purple));
+      border-color: transparent;
+    }
+
+    @media (max-width: 680px) {
+      body.light-mode .orbit-chip {
+        background: linear-gradient(135deg, #ffffff, #f5edff);
+        color: var(--light-purple-dark);
+        border: 1px solid rgba(124, 45, 255, 0.24);
+        box-shadow: 0 10px 24px rgba(124, 45, 255, 0.13);
+      }
+    }
+
     body:not(.light-mode) .project-tile,
     body:not(.light-mode) .contact-panel,
     body:not(.light-mode) .skill-column,

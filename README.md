@@ -2,9 +2,9 @@
 
 🔗 **Live Website:** https://portfolio-woad-ten-luqqlgti63.vercel.app/
 
-This is my personal portfolio website designed to showcase my skills, projects, education, and contact information in a clean and professional way.
+I developed this personal portfolio website to showcase my technical skills, academic background, projects, resume, and contact information in a professional and user-friendly way.
 
-The website includes a modern layout, personal introduction, project highlights, resume/CV section, and responsive design for both desktop and mobile devices.
+The website features a modern responsive design, a clear personal introduction, highlighted project sections, and an easy-to-navigate layout. It helps present my work and experience effectively to potential employers, recruiters, and collaborators.
 
 ---
 

@@ -11,7 +11,6 @@ The website features a modern responsive design, a clear personal introduction, 
 # ✨ Features
 
 - Personal introduction section
-- About me section
 - Skills showcase
 - Projects section
 - Resume/CV download option

@@ -71,11 +71,6 @@ cd portfolio
 
 ---
 
-# 🌐 Live Demo
-
-Visit the deployed portfolio here:
-
-https://portfolio-woad-ten-luqqlgti63.vercel.app/
 
 ---
 
